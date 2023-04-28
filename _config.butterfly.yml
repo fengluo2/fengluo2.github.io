@@ -437,7 +437,7 @@ livere:
 gitalk:
   client_id: 6bce2cb5d364511a373e
   client_secret: 8b0ced49e9699311f87ce4f01a70799ff26b110f
-  repo: https://github.com/fengluo2/MapleComment.git
+  repo: https://github.com/fengluo2/HexoComment.git
   owner: fengluo2
   admin: fengluo2
   option:
