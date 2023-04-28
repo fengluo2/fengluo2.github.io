@@ -35,6 +35,7 @@ code_word_wrap: false
 social:
    fab fa-github: https://github.com/fengluo2 || Github || '#24292e'
    fas fa-envelope: mailto:sunman_one@163.com || Email || '#4a7dbe'
+   fas fa-rss: /rss2.xml || Email || '#4a7dbe'
 
 # Image (圖片設置)
 # --------------------------------------
@@ -208,7 +209,7 @@ footer:
   owner:
     enable: true
     since: 2022
-  custom_text: <a href="icp链接"><span>互联网ICP备案：黑ICP备2023002885号-1</span></a>
+  custom_text: 
   copyright: false # Copyright of theme and framework
 
 # aside (側邊欄)
