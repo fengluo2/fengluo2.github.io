@@ -15,14 +15,14 @@
     <atom:link href="http://example.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>枫珞的博客，有各种各样的东西。</description>
-    <pubDate>Fri, 28 Apr 2023 16:01:53 GMT</pubDate>
+    <pubDate>Sat, 29 Apr 2023 15:55:09 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
       <title>Hello World</title>
-      <link>http://example.com/2023/04/28/hello-world/</link>
-      <guid>http://example.com/2023/04/28/hello-world/</guid>
-      <pubDate>Fri, 28 Apr 2023 16:01:53 GMT</pubDate>
+      <link>http://example.com/2023/04/29/hello-world/</link>
+      <guid>http://example.com/2023/04/29/hello-world/</guid>
+      <pubDate>Sat, 29 Apr 2023 15:55:09 GMT</pubDate>
       
         
         
@@ -37,21 +37,21 @@
       
       
       
-      <comments>http://example.com/2023/04/28/hello-world/#disqus_thread</comments>
+      <comments>http://example.com/2023/04/29/hello-world/#disqus_thread</comments>
       
     </item>
     
     <item>
-      <title>test Post</title>
-      <link>http://example.com/2023/04/27/test-post/</link>
-      <guid>http://example.com/2023/04/27/test-post/</guid>
-      <pubDate>Thu, 27 Apr 2023 10:49:00 GMT</pubDate>
+      <title>麻绳专挑细处断,噩运只找苦命人</title>
+      <link>http://example.com/2023/04/29/ma-sheng-zhuan-tiao-xi-chu-duan-e-yun-zhi-zhao-ku-ming-ren/</link>
+      <guid>http://example.com/2023/04/29/ma-sheng-zhuan-tiao-xi-chu-duan-e-yun-zhi-zhao-ku-ming-ren/</guid>
+      <pubDate>Sat, 29 Apr 2023 15:34:04 GMT</pubDate>
       
         
         
           
           
-      <description>&lt;p&gt;asdasdasdsadasdas&lt;/p&gt;
+      <description>&lt;p&gt;不是说之专挑细处，只是因为麻绳的粗细不同，同样的力道麻绳粗的一段便不会断&lt;br&gt;就厄运而言，实力强大的人他的容错更高&lt;br&gt;因此，我们能做的只有时刻提升自己，以应对可能出现的情况&lt;/p&gt;
 </description>
           
         
@@ -59,13 +59,11 @@
       
       
       
-      <category domain="http://example.com/categories/test/">test</category>
+      <category domain="http://example.com/categories/%E9%9A%8F%E7%AC%94/">随笔</category>
       
       
-      <category domain="http://example.com/tags/test/">test</category>
       
-      
-      <comments>http://example.com/2023/04/27/test-post/#disqus_thread</comments>
+      <comments>http://example.com/2023/04/29/ma-sheng-zhuan-tiao-xi-chu-duan-e-yun-zhi-zhao-ku-ming-ren/#disqus_thread</comments>
       
     </item>
     

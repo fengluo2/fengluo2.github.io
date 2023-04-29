@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>Hello World</title>
-    <url>/2023/04/28/hello-world/</url>
+    <url>/2023/04/29/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 
@@ -19,15 +19,12 @@
 ]]></content>
   </entry>
   <entry>
-    <title>test Post</title>
-    <url>/2023/04/27/test-post/</url>
-    <content><![CDATA[<p>asdasdasdsadasdas</p>
+    <title>麻绳专挑细处断,噩运只找苦命人</title>
+    <url>/2023/04/29/ma-sheng-zhuan-tiao-xi-chu-duan-e-yun-zhi-zhao-ku-ming-ren/</url>
+    <content><![CDATA[<p>不是说之专挑细处，只是因为麻绳的粗细不同，同样的力道麻绳粗的一段便不会断<br>就厄运而言，实力强大的人他的容错更高<br>因此，我们能做的只有时刻提升自己，以应对可能出现的情况</p>
 ]]></content>
       <categories>
-        <category>test</category>
+        <category>随笔</category>
       </categories>
-      <tags>
-        <tag>test</tag>
-      </tags>
   </entry>
 </search>
