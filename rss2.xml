@@ -15,14 +15,14 @@
     <atom:link href="http://example.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>枫珞的博客，有各种各样的东西。</description>
-    <pubDate>Sun, 07 May 2023 06:34:46 GMT</pubDate>
+    <pubDate>Sun, 07 May 2023 12:25:04 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
       <title>Hello World</title>
       <link>http://example.com/2023/05/07/hello-world/</link>
       <guid>http://example.com/2023/05/07/hello-world/</guid>
-      <pubDate>Sun, 07 May 2023 06:34:46 GMT</pubDate>
+      <pubDate>Sun, 07 May 2023 12:25:04 GMT</pubDate>
       
         
         
@@ -42,6 +42,35 @@
     </item>
     
     <item>
+      <title>gateway的使用记录</title>
+      <link>http://example.com/2023/05/07/gateway-de-shi-yong-ji-lu/</link>
+      <guid>http://example.com/2023/05/07/gateway-de-shi-yong-ji-lu/</guid>
+      <pubDate>Sun, 07 May 2023 03:05:35 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;h3 id=&quot;使用&quot;&gt;&lt;a href=&quot;#使用&quot; class=&quot;headerlink&quot; title=&quot;使用&quot;&gt;&lt;/a&gt;使用&lt;/h3&gt;&lt;h4 id=&quot;添加依赖&quot;&gt;&lt;a href=&quot;#添加依赖&quot; class=&quot;headerlink&quot;</description>
+          
+        
+      
+      
+      
+      
+      <category domain="http://example.com/categories/spring-cloud/">spring-cloud</category>
+      
+      
+      <category domain="http://example.com/tags/java/">java</category>
+      
+      <category domain="http://example.com/tags/gateway/">gateway</category>
+      
+      
+      <comments>http://example.com/2023/05/07/gateway-de-shi-yong-ji-lu/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
       <title>nacos使用记录</title>
       <link>http://example.com/2023/05/06/nacos-shi-yong-ji-lu/</link>
       <guid>http://example.com/2023/05/06/nacos-shi-yong-ji-lu/</guid>
@@ -51,7 +80,7 @@
         
           
           
-      <description>&lt;h2 id=&quot;nacos分级存储模型&quot;&gt;&lt;a href=&quot;#nacos分级存储模型&quot; class=&quot;headerlink&quot;</description>
+      <description>&lt;h3 id=&quot;1-nacos分级存储模型&quot;&gt;&lt;a href=&quot;#1-nacos分级存储模型&quot; class=&quot;headerlink&quot;</description>
           
         
       
