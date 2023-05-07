@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>Hello World</title>
-    <url>/2023/04/29/hello-world/</url>
+    <url>/2023/05/07/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 
@@ -17,6 +17,40 @@
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>jackson的简单使用</title>
+    <url>/2023/05/06/jackson-de-jian-dan-shi-yong/</url>
+    <content><![CDATA[<p>jackson是一款安全的json处理框架<br>大部分都依靠<code>ObjectMapper</code>这个工具类据处理json对象<br>jackson里的json对象分三种<code>JsonNode</code>,<code>ObjectNode</code>和<code>ArrayNode</code><br><code>JsonNode</code>不可更改,<code>ObjectNode</code>是可变的,<code>ArraryNode</code>是列表<br>输出的缩进格式可以更改</p>
+]]></content>
+      <tags>
+        <tag>java</tag>
+        <tag>jackson</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>nacos使用记录</title>
+    <url>/2023/05/06/nacos-shi-yong-ji-lu/</url>
+    <content><![CDATA[<h2 id="nacos分级存储模型"><a href="#nacos分级存储模型" class="headerlink" title="nacos分级存储模型"></a>nacos分级存储模型</h2><ol>
+<li>服务，如userservice</li>
+<li>集群，如杭州、上海</li>
+<li>实例</li>
+</ol>
+<h3 id="1-服务发现和服务注册"><a href="#1-服务发现和服务注册" class="headerlink" title="1.服务发现和服务注册"></a>1.服务发现和服务注册</h3><p>添加依赖  </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;com.alibaba.cloud&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-cloud-starter-alibaba-nacos-discovery&lt;artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>配置，与eureka类似，也需要配置服务器，还可以配置集群<code>(默认为同一集群)</code>名称</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">spring:</span><br><span class="line">  cloud:</span><br><span class="line">    nacos:</span><br><span class="line">      server-addr: localhost:8848</span><br><span class="line">      discovery:</span><br><span class="line">        cluster-name: DEFAULT ## 集群名称</span><br><span class="line">        namespace:            ## 命名空间</span><br><span class="line">        ephemeral: true       ## 临时实例</span><br></pre></td></tr></table></figure>
+<p>或者在启动加入<code>-Dspring.cloud.nacos.discovery.cluster-name=SH</code></p>
+<h3 id="2-负载均衡"><a href="#2-负载均衡" class="headerlink" title="2.负载均衡"></a>2.负载均衡</h3><p>使请求优先在本集群寻找实例</p>
+<h3 id="3-配置中心"><a href="#3-配置中心" class="headerlink" title="3.配置中心"></a>3.配置中心</h3><p>添加依赖<br>配置  </p>
+]]></content>
+      <categories>
+        <category>spring-cloud</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>nacos</tag>
+      </tags>
   </entry>
   <entry>
     <title>麻绳专挑细处断,噩运只找苦命人</title>
