@@ -7,11 +7,11 @@ tags:
 categories:
     - spring-cloud
 ---
-## nacos分级存储模型
+### 1.nacos分级存储模型
 1. 服务，如userservice
 2. 集群，如杭州、上海
 3. 实例
-### 1.服务发现和服务注册
+### 2.服务发现和服务注册
 添加依赖  
 ```
 <dependency>
@@ -32,8 +32,38 @@ spring:
         ephemeral: true       ## 临时实例
 ```
 或者在启动加入`-Dspring.cloud.nacos.discovery.cluster-name=SH`
-### 2.负载均衡
-使请求优先在本集群寻找实例
-### 3.配置中心
+### 3.负载均衡
+新版nacos已经包含ribbon
+可以使用loadbalancer实现负载均衡
+### 4.配置中心
 添加依赖  
+```
+<dependency>
+  <groupId>com.alibaba.cloud</groupId>
+  <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+</dependency>
+<!-- 对于高版本的springcloud，还需要这个，要不然无法读取bootstrap.yml文件 -->
+<dependency>
+  <groupId>org.springframework.cloud</groupId>
+  <artifactId>spring-cloud-starter-bootstrap</artifactId>
+</dependency>
+```
+添加bootstrap.yml文件  
 配置  
+```
+spring:
+  application:
+    name: education-service
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      server-addr: localhost:8848
+      config:
+        file-extension: yaml
+```
+### 5.实现热更新  
+使用`@ConfigurationProperties`的属性配置注解注入，自动刷新  
+通过`@Value`注解注入，结合`@RefreshScope`注解实现刷新  
+### 6.注意
+1. 不是所有的配置都适合放到配置中心，将一些关键参数，需要运行时要调整的参数放到nacos配置中心，一般都是自定义配置  
