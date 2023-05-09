@@ -1,6 +1,7 @@
 ---
 title: nacos使用记录
 date: 2023-05-06T22:05:49+08:00
+updated: 2023-05-06T22:05:49+08:00
 tags:
     - java
     - nacos
