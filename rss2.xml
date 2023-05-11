@@ -15,8 +15,34 @@
     <atom:link href="http://example.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>枫珞的博客，有各种各样的东西。</description>
-    <pubDate>Sun, 07 May 2023 04:28:42 GMT</pubDate>
+    <pubDate>Thu, 11 May 2023 01:51:40 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>GithubAction的自动化构建</title>
+      <link>http://example.com/2023/05/11/zi-dong-hua-gou-jian/</link>
+      <guid>http://example.com/2023/05/11/zi-dong-hua-gou-jian/</guid>
+      <pubDate>Thu, 11 May 2023 01:51:40 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;在项目创建&lt;code&gt;.github/workflows&lt;/code&gt;文件夹&lt;br&gt;创建main.yml文件,名字随意&lt;br&gt;文件要包含几个主要信息&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</description>
+          
+        
+      
+      
+      
+      
+      
+      <category domain="http://example.com/tags/GithubAction/">GithubAction</category>
+      
+      
+      <comments>http://example.com/2023/05/11/zi-dong-hua-gou-jian/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>初识docker</title>

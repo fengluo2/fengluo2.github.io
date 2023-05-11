@@ -91,6 +91,31 @@
       </categories>
   </entry>
   <entry>
+    <title>GithubAction的自动化构建</title>
+    <url>/2023/05/11/zi-dong-hua-gou-jian/</url>
+    <content><![CDATA[<p>在项目创建<code>.github/workflows</code>文件夹<br>创建main.yml文件,名字随意<br>文件要包含几个主要信息</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 如不设置,这个流程名为文件名</span><br><span class="line">name:</span><br><span class="line">// 这个流程的主要信息,监听事件  </span><br><span class="line">on:</span><br><span class="line">// 包含的任务,并且任务之间可以有依赖关系  </span><br><span class="line">jobs:</span><br></pre></td></tr></table></figure>
+
+<p>任务和任务之间是并发的  </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 任务的名字,也可以用name设置</span><br><span class="line">job:</span><br><span class="line">  // 任务的执行环境</span><br><span class="line">  runs-on: ubuntu-22.04</span><br><span class="line">  // 这个任务的具体步骤,这是顺序执行的</span><br><span class="line">  steps:</span><br></pre></td></tr></table></figure>
+
+<p>至于<code>seteps</code>的信息  </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">steps:</span><br><span class="line">    // 步骤的具体名称</span><br><span class="line">  - name: deloy</span><br><span class="line">    // 使用的包,可以查看github的Action市场,它提供了许多工具</span><br><span class="line">    uses: srueda99/scp-action@v12</span><br><span class="line">    // 参数,当钱包的参数</span><br><span class="line">    with:</span><br><span class="line">      port: 22</span><br><span class="line">      host: 1.1.1.1</span><br><span class="line">      username: root</span><br></pre></td></tr></table></figure>
+
+<p>列几个常用的包:</p>
+<ul>
+<li>actions&#x2F;checkout  拉取仓库进行处理</li>
+<li>actions&#x2F;setup-node  安装node依赖</li>
+<li>actions&#x2F;setup-java  安装java依赖</li>
+<li>appleboy&#x2F;ssh-action  远程连接服务器,执行命令</li>
+<li>appleboy&#x2F;scp-action  传输文件,如将打包好的包传输给服务器</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>GithubAction</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>麻绳专挑细处断,噩运只找苦命人</title>
     <url>/2023/04/28/ma-sheng-zhuan-tiao-xi-chu-duan-e-yun-zhi-zhao-ku-ming-ren/</url>
     <content><![CDATA[<p>不是说之专挑细处，只是因为麻绳的粗细不同，同样的力道麻绳粗的一段便不会断<br>就厄运而言，实力强大的人他的容错更高<br>因此，我们能做的只有时刻提升自己，以应对可能出现的情况</p>
