@@ -85,7 +85,9 @@
   <entry>
     <title>初识docker</title>
     <url>/2023/05/07/chu-shi-docker/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>没啥可说的,按照官方文档安装即可</p>
+<h1 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h1><p>通过<code>docker --help</code>了解命令</p>
+]]></content>
       <categories>
         <category>docker</category>
       </categories>
