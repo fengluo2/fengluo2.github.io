@@ -135,11 +135,13 @@
 <li>rm 删除一个或多个指定的volume</li>
 </ul>
 <h3 id="挂载数据卷"><a href="#挂载数据卷" class="headerlink" title="挂载数据卷"></a>挂载数据卷</h3><p>我们在创建容器时，可以通过 -v 参数来挂载一个数据卷到某个容器内目录，命令格式如下：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">docker run \</span><br><span class="line">  --name mn \</span><br><span class="line">  -v html:/root/html \</span><br><span class="line">  -p 8080:80</span><br><span class="line">  ppp \</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">docker run \</span><br><span class="line">  --name mn \</span><br><span class="line">  -v [数据卷名称或宿主机目录或宿主机文件:容器内目录或文件] \</span><br><span class="line">  -p 8080:80</span><br><span class="line">  ppp \</span><br></pre></td></tr></table></figure>
 
 <p>这里的-v就是挂载数据卷的命令：</p>
 <ul>
 <li><code>-v html:/root/htm</code> ：把html数据卷挂载到容器内的&#x2F;root&#x2F;html这个目录中</li>
+<li><code>-v /temp/mysql/config/:/etc/mysql/conf.d/</code> ：把html数据卷挂载到容器内的&#x2F;root&#x2F;html这个目录中</li>
+<li><code>-v /temp/nginx/index.html:/etc/nginx/index.html</code> ：把html数据卷挂载到容器内的&#x2F;root&#x2F;html这个目录中</li>
 </ul>
 ]]></content>
       <categories>
