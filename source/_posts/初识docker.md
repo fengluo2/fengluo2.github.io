@@ -84,3 +84,4 @@ docker run \
 这里的-v就是挂载数据卷的命令：
 
 - `-v html:/root/htm` ：把html数据卷挂载到容器内的/root/html这个目录中
+
