@@ -12,7 +12,7 @@ categories:
 
 #### 添加依赖
 
-```
+```xml
 <dependency>
   <groupId>org.springframework.cloud</groupId>
   <artifactId>spring-cloud-starter-gateway</artifactId>
@@ -34,7 +34,7 @@ categories:
 
 开卷考试
 
-```
+```yml
 spring:
   cloud:
     gateway:
