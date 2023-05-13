@@ -76,7 +76,7 @@ docker volume [COMMAND]
 ```sh
 docker run \
   --name mn \
-  -v html:/root/html \
+  -v [数据卷名称或宿主机目录或宿主机文件:容器内目录或文件] \
   -p 8080:80
   ppp \
 ```
@@ -84,4 +84,5 @@ docker run \
 这里的-v就是挂载数据卷的命令：
 
 - `-v html:/root/htm` ：把html数据卷挂载到容器内的/root/html这个目录中
-
+- `-v /temp/mysql/config/:/etc/mysql/conf.d/` ：把html数据卷挂载到容器内的/root/html这个目录中
+- `-v /temp/nginx/index.html:/etc/nginx/index.html` ：把html数据卷挂载到容器内的/root/html这个目录中
