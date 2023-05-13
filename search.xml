@@ -3,7 +3,7 @@
   <entry>
     <title>gateway的使用记录</title>
     <url>/2023/05/07/gateway-de-shi-yong-ji-lu/</url>
-    <content><![CDATA[<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><h4 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a>添加依赖</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">  &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">  &lt;artifactId&gt;spring-cloud-starter-gateway&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;!-- 新版gateway需要加上lb依赖 --&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">  &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">  &lt;artifactId&gt;spring-cloud-starter-loadbalancer&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+    <content><![CDATA[<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><h4 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a>添加依赖</h4><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-gateway<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 新版gateway需要加上lb依赖 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-loadbalancer<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <h4 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h4><ol>
 <li>gateway可以添加过滤器，以实现修改请求头，鉴权等功能<code>(实现GlobalFilter接口)</code>，并加入<code>@Component</code>注解,<code>@Order</code>注解设置优先级  </li>
@@ -11,7 +11,7 @@
 <li>当过滤器的值一样时,会按照defaultFilter -&gt; 路由过滤器 -&gt; GobalFilter的顺序执行</li>
 </ol>
 <h4 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h4><p>开卷考试</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">spring:</span><br><span class="line">  cloud:</span><br><span class="line">    gateway:</span><br><span class="line">      globalcors: # 全局的跨域处理</span><br><span class="line">        add-to-simple-url-handler-mapping: true # 解决options请求被拦截问题</span><br><span class="line">        corsConfigurations:</span><br><span class="line">          &#x27;[/**]&#x27;:</span><br><span class="line">            allowedOrigins: # 允许哪些网站的跨域请求</span><br><span class="line">              - &quot;http://localhost:8090&quot;</span><br><span class="line">              - &quot;http://www.leyou.com&quot;</span><br><span class="line">            allowedMethods: # 允许的跨域ajax的请求方式</span><br><span class="line">              - &quot;GET&quot;</span><br><span class="line">              - &quot;POST&quot;</span><br><span class="line">              - &quot;DELETE&quot;</span><br><span class="line">              - &quot;PUT&quot;</span><br><span class="line">              - &quot;OPTIONS&quot;</span><br><span class="line">            allowedHeaders: &quot;*&quot; # 允许在请求中携带的头信息</span><br><span class="line">            allowCredentials: true # 是否允许携带cookie</span><br><span class="line">            maxAge: 360000 # 这次跨域检测的有效期</span><br></pre></td></tr></table></figure>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">cloud:</span></span><br><span class="line">    <span class="attr">gateway:</span></span><br><span class="line">      <span class="attr">globalcors:</span> <span class="comment"># 全局的跨域处理</span></span><br><span class="line">        <span class="attr">add-to-simple-url-handler-mapping:</span> <span class="literal">true</span> <span class="comment"># 解决options请求被拦截问题</span></span><br><span class="line">        <span class="attr">corsConfigurations:</span></span><br><span class="line">          <span class="string">&#x27;[/**]&#x27;</span><span class="string">:</span></span><br><span class="line">            <span class="attr">allowedOrigins:</span> <span class="comment"># 允许哪些网站的跨域请求</span></span><br><span class="line">              <span class="bullet">-</span> <span class="string">&quot;http://localhost:8090&quot;</span></span><br><span class="line">              <span class="bullet">-</span> <span class="string">&quot;http://www.leyou.com&quot;</span></span><br><span class="line">            <span class="attr">allowedMethods:</span> <span class="comment"># 允许的跨域ajax的请求方式</span></span><br><span class="line">              <span class="bullet">-</span> <span class="string">&quot;GET&quot;</span></span><br><span class="line">              <span class="bullet">-</span> <span class="string">&quot;POST&quot;</span></span><br><span class="line">              <span class="bullet">-</span> <span class="string">&quot;DELETE&quot;</span></span><br><span class="line">              <span class="bullet">-</span> <span class="string">&quot;PUT&quot;</span></span><br><span class="line">              <span class="bullet">-</span> <span class="string">&quot;OPTIONS&quot;</span></span><br><span class="line">            <span class="attr">allowedHeaders:</span> <span class="string">&quot;*&quot;</span> <span class="comment"># 允许在请求中携带的头信息</span></span><br><span class="line">            <span class="attr">allowCredentials:</span> <span class="literal">true</span> <span class="comment"># 是否允许携带cookie</span></span><br><span class="line">            <span class="attr">maxAge:</span> <span class="number">360000</span> <span class="comment"># 这次跨域检测的有效期</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>Gateway不是Nginx，他只是分流，没有做代理!!</p>
 ]]></content>
@@ -60,15 +60,19 @@
 <li>实例</li>
 </ol>
 <h3 id="2-服务发现和服务注册"><a href="#2-服务发现和服务注册" class="headerlink" title="2.服务发现和服务注册"></a>2.服务发现和服务注册</h3><p>添加依赖  </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;com.alibaba.cloud&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-cloud-starter-alibaba-nacos-discovery&lt;artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-alibaba-nacos-discovery<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>配置，与eureka类似，也需要配置服务器，还可以配置集群<code>(默认为同一集群)</code>名称</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">spring:</span><br><span class="line">  cloud:</span><br><span class="line">    nacos:</span><br><span class="line">      server-addr: localhost:8848</span><br><span class="line">      discovery:</span><br><span class="line">        cluster-name: DEFAULT ## 集群名称</span><br><span class="line">        namespace:            ## 命名空间</span><br><span class="line">        ephemeral: true       ## 临时实例</span><br></pre></td></tr></table></figure>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">cloud:</span></span><br><span class="line">    <span class="attr">nacos:</span></span><br><span class="line">      <span class="attr">server-addr:</span> <span class="string">localhost:8848</span></span><br><span class="line">      <span class="attr">discovery:</span></span><br><span class="line">        <span class="attr">cluster-name:</span> <span class="string">DEFAULT</span> <span class="comment">## 集群名称</span></span><br><span class="line">        <span class="attr">namespace:</span>            <span class="comment">## 命名空间</span></span><br><span class="line">        <span class="attr">ephemeral:</span> <span class="literal">true</span>       <span class="comment">## 临时实例</span></span><br></pre></td></tr></table></figure>
+
 <p>或者在启动加入<code>-Dspring.cloud.nacos.discovery.cluster-name=SH</code></p>
 <h3 id="3-负载均衡"><a href="#3-负载均衡" class="headerlink" title="3.负载均衡"></a>3.负载均衡</h3><p>新版nacos已经包含ribbon<br>可以使用loadbalancer实现负载均衡</p>
 <h3 id="4-配置中心"><a href="#4-配置中心" class="headerlink" title="4.配置中心"></a>4.配置中心</h3><p>添加依赖  </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">  &lt;groupId&gt;com.alibaba.cloud&lt;/groupId&gt;</span><br><span class="line">  &lt;artifactId&gt;spring-cloud-starter-alibaba-nacos-config&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;!-- 对于高版本的springcloud，还需要这个，要不然无法读取bootstrap.yml文件 --&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">  &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">  &lt;artifactId&gt;spring-cloud-starter-bootstrap&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-alibaba-nacos-config<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 对于高版本的springcloud，还需要这个，要不然无法读取bootstrap.yml文件 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-bootstrap<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <p>添加bootstrap.yml文件<br>配置  </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">spring:</span><br><span class="line">  application:</span><br><span class="line">    name: education-service</span><br><span class="line">  profiles:</span><br><span class="line">    active: dev</span><br><span class="line">  cloud:</span><br><span class="line">    nacos:</span><br><span class="line">      server-addr: localhost:8848</span><br><span class="line">      config:</span><br><span class="line">        file-extension: yaml</span><br></pre></td></tr></table></figure>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">application:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">education-service</span></span><br><span class="line">  <span class="attr">profiles:</span></span><br><span class="line">    <span class="attr">active:</span> <span class="string">dev</span></span><br><span class="line">  <span class="attr">cloud:</span></span><br><span class="line">    <span class="attr">nacos:</span></span><br><span class="line">      <span class="attr">server-addr:</span> <span class="string">localhost:8848</span></span><br><span class="line">      <span class="attr">config:</span></span><br><span class="line">        <span class="attr">file-extension:</span> <span class="string">yaml</span></span><br></pre></td></tr></table></figure>
+
 <h3 id="5-实现热更新"><a href="#5-实现热更新" class="headerlink" title="5.实现热更新"></a>5.实现热更新</h3><p>使用<code>@ConfigurationProperties</code>的属性配置注解注入，自动刷新<br>通过<code>@Value</code>注解注入，结合<code>@RefreshScope</code>注解实现刷新  </p>
 <h3 id="6-注意"><a href="#6-注意" class="headerlink" title="6.注意"></a>6.注意</h3><ol>
 <li>不是所有的配置都适合放到配置中心，将一些关键参数，需要运行时要调整的参数放到nacos配置中心，一般都是自定义配置</li>
@@ -87,6 +91,56 @@
     <url>/2023/05/07/chu-shi-docker/</url>
     <content><![CDATA[<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>没啥可说的,按照官方文档安装即可</p>
 <h1 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h1><p>通过<code>docker --help</code>了解命令</p>
+<h2 id="镜像操作"><a href="#镜像操作" class="headerlink" title="镜像操作"></a>镜像操作</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">docker save -o [保存的目标文件名称] [镜像名称]</span><br><span class="line">docker rmi [镜像名称]</span><br><span class="line">docker load -i [目标文件名称]</span><br></pre></td></tr></table></figure>
+
+<h2 id="容器操作"><a href="#容器操作" class="headerlink" title="容器操作"></a>容器操作</h2><p>容器保护三个状态：</p>
+<ul>
+<li>运行：进程正常运行</li>
+<li>暂停：进程暂停，CPU不再运行，并不释放内存</li>
+<li>停止：进程终止，回收进程占用的内存、CPU等资源</li>
+</ul>
+<p>其中：</p>
+<ul>
+<li><p>docker run：创建并运行一个容器，处于运行状态</p>
+</li>
+<li><p>docker pause：让一个运行的容器暂停</p>
+</li>
+<li><p>docker unpause：让一个容器从暂停状态恢复运行</p>
+</li>
+<li><p>docker stop：停止一个运行的容器</p>
+</li>
+<li><p>docker start：让一个停止的容器再次运行</p>
+</li>
+<li><p>docker rm：删除一个容器</p>
+</li>
+</ul>
+<p>进入容器</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it mn bash</span><br></pre></td></tr></table></figure>
+
+<p>命令解读：</p>
+<ul>
+<li>docker exec ：进入容器内部，执行一个命令</li>
+<li>-it : 给当前进入的容器创建一个标准输入、输出终端，允许我们与容器交互</li>
+<li>mn ：要进入的容器的名称</li>
+<li>bash：进入容器后执行的命令，bash是一个linux终端交互命令</li>
+</ul>
+<h2 id="数据卷"><a href="#数据卷" class="headerlink" title="数据卷"></a>数据卷</h2><h3 id="数据卷操作的基本语法如下"><a href="#数据卷操作的基本语法如下" class="headerlink" title="数据卷操作的基本语法如下"></a>数据卷操作的基本语法如下</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">docker volume [COMMAND]</span><br></pre></td></tr></table></figure>
+
+<p><code>docker volume</code>命令是数据卷操作，根据命令后跟随的<code>command</code>来确定下一步的操作：</p>
+<ul>
+<li>create 创建一个volume</li>
+<li>inspect 显示一个或多个volume的信息</li>
+<li>ls 列出所有的volume</li>
+<li>prune 删除未使用的volume</li>
+<li>rm 删除一个或多个指定的volume</li>
+</ul>
+<h3 id="挂载数据卷"><a href="#挂载数据卷" class="headerlink" title="挂载数据卷"></a>挂载数据卷</h3><p>我们在创建容器时，可以通过 -v 参数来挂载一个数据卷到某个容器内目录，命令格式如下：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">docker run \</span><br><span class="line">  --name mn \</span><br><span class="line">  -v html:/root/html \</span><br><span class="line">  -p 8080:80</span><br><span class="line">  ppp \</span><br></pre></td></tr></table></figure>
+
+<p>这里的-v就是挂载数据卷的命令：</p>
+<ul>
+<li><code>-v html:/root/htm</code> ：把html数据卷挂载到容器内的&#x2F;root&#x2F;html这个目录中</li>
+</ul>
 ]]></content>
       <categories>
         <category>docker</category>
@@ -96,13 +150,13 @@
     <title>GithubAction的自动化构建</title>
     <url>/2023/05/11/zi-dong-hua-gou-jian/</url>
     <content><![CDATA[<p>在项目创建<code>.github/workflows</code>文件夹<br>创建main.yml文件,名字随意<br>文件要包含几个主要信息</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 如不设置,这个流程名为文件名</span><br><span class="line">name:</span><br><span class="line">// 这个流程的主要信息,监听事件  </span><br><span class="line">on:</span><br><span class="line">// 包含的任务,并且任务之间可以有依赖关系  </span><br><span class="line">jobs:</span><br></pre></td></tr></table></figure>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="string">//</span> <span class="string">如不设置,这个流程名为文件名</span></span><br><span class="line"><span class="attr">name:</span></span><br><span class="line"><span class="string">//</span> <span class="string">这个流程的主要信息,监听事件</span>  </span><br><span class="line"><span class="attr">on:</span></span><br><span class="line"><span class="string">//</span> <span class="string">包含的任务,并且任务之间可以有依赖关系</span>  </span><br><span class="line"><span class="attr">jobs:</span></span><br></pre></td></tr></table></figure>
 
 <p>任务和任务之间是并发的  </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 任务的名字,也可以用name设置</span><br><span class="line">job:</span><br><span class="line">  // 任务的执行环境</span><br><span class="line">  runs-on: ubuntu-22.04</span><br><span class="line">  // 这个任务的具体步骤,这是顺序执行的</span><br><span class="line">  steps:</span><br></pre></td></tr></table></figure>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="string">//</span> <span class="string">任务的名字,也可以用name设置</span></span><br><span class="line"><span class="attr">job:</span></span><br><span class="line">  <span class="string">//</span> <span class="string">任务的执行环境</span></span><br><span class="line">  <span class="attr">runs-on:</span> <span class="string">ubuntu-22.04</span></span><br><span class="line">  <span class="string">//</span> <span class="string">这个任务的具体步骤,这是顺序执行的</span></span><br><span class="line">  <span class="attr">steps:</span></span><br></pre></td></tr></table></figure>
 
 <p>至于<code>seteps</code>的信息  </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">steps:</span><br><span class="line">    // 步骤的具体名称</span><br><span class="line">  - name: deloy</span><br><span class="line">    // 使用的包,可以查看github的Action市场,它提供了许多工具</span><br><span class="line">    uses: srueda99/scp-action@v12</span><br><span class="line">    // 参数,当钱包的参数</span><br><span class="line">    with:</span><br><span class="line">      port: 22</span><br><span class="line">      host: 1.1.1.1</span><br><span class="line">      username: root</span><br></pre></td></tr></table></figure>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">steps:</span></span><br><span class="line">    <span class="string">//</span> <span class="string">步骤的具体名称</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">deloy</span></span><br><span class="line">    <span class="string">//</span> <span class="string">使用的包,可以查看github的Action市场,它提供了许多工具</span></span><br><span class="line">    <span class="attr">uses:</span> <span class="string">srueda99/scp-action@v12</span></span><br><span class="line">    <span class="string">//</span> <span class="string">参数,当钱包的参数</span></span><br><span class="line">    <span class="attr">with:</span></span><br><span class="line">      <span class="attr">port:</span> <span class="number">22</span></span><br><span class="line">      <span class="attr">host:</span> <span class="number">1.1</span><span class="number">.1</span><span class="number">.1</span></span><br><span class="line">      <span class="attr">username:</span> <span class="string">root</span></span><br></pre></td></tr></table></figure>
 
 <p>列几个常用的包:</p>
 <ul>

@@ -29,7 +29,7 @@
           
           
       <description>&lt;p&gt;在项目创建&lt;code&gt;.github/workflows&lt;/code&gt;文件夹&lt;br&gt;创建main.yml文件,名字随意&lt;br&gt;文件要包含几个主要信息&lt;/p&gt;
-&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</description>
+&lt;figure class=&quot;highlight yml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</description>
           
         
       
