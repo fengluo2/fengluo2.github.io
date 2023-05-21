@@ -149,6 +149,14 @@
       </categories>
   </entry>
   <entry>
+    <title>提高记忆力的方法</title>
+    <url>/2023/05/21/ti-gao-ji-yi-li-de-fang-fa/</url>
+    <content><![CDATA[<h1 id="首先，从身体层面上"><a href="#首先，从身体层面上" class="headerlink" title="首先，从身体层面上"></a>首先，从身体层面上</h1><h2 id="作息一定要规律"><a href="#作息一定要规律" class="headerlink" title="作息一定要规律"></a>作息一定要规律</h2><h2 id="饮食一定要均衡"><a href="#饮食一定要均衡" class="headerlink" title="饮食一定要均衡"></a>饮食一定要均衡</h2><h2 id="运动一定要达标"><a href="#运动一定要达标" class="headerlink" title="运动一定要达标"></a>运动一定要达标</h2><h1 id="其次，在方法上"><a href="#其次，在方法上" class="headerlink" title="其次，在方法上"></a>其次，在方法上</h1>]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+  </entry>
+  <entry>
     <title>GithubAction的自动化构建</title>
     <url>/2023/05/11/zi-dong-hua-gou-jian/</url>
     <content><![CDATA[<p>在项目创建<code>.github/workflows</code>文件夹<br>创建main.yml文件,名字随意<br>文件要包含几个主要信息</p>
