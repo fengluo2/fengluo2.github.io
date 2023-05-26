@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Linux中查找所有文件中含有特定字符串的脚本</title>
+    <url>/2023/05/25/linux-zhong-cha-zhao-suo-you-wen-jian-zhong-han-you-te-ding-zi-fu-chuan-de-jiao-ben/</url>
+    <content><![CDATA[<p>查找所有文件，命令：<code>sudo ./find.sh [路径]</code><br>他会查找该目录所有文件，并将匹配的文件和内容输出</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">maple</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"></span></span><br><span class="line"><span class="language-bash"></span></span><br><span class="line">function scan &#123;</span><br><span class="line">        if [ -f $1 ];then</span><br><span class="line">                echo &#x27;file&#x27; $1</span><br><span class="line">                cat $1 | grep &#x27;[0-9]\+&#x27; # 这里匹配的是正则表达式，根据需要自行修改</span><br><span class="line">        elif [ -d $1 ];then</span><br><span class="line">                for f in `ls -a $1`;do # la -a 会匹配所有文件，所有将 . 和 .. 排除 </span><br><span class="line">                        if [ $f = &#x27;.&#x27; ] || [ $f = &#x27;..&#x27; ];then</span><br><span class="line">                                continue</span><br><span class="line">                        else</span><br><span class="line">                                scan $1/$f # 递归扫描</span><br><span class="line">                        fi</span><br><span class="line">                done</span><br><span class="line">        fi</span><br><span class="line">&#125;</span><br><span class="line">echo &#x27;start scan&#x27;</span><br><span class="line">scan $1</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>script</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>gateway的使用记录</title>
     <url>/2023/05/07/gateway-de-shi-yong-ji-lu/</url>
     <content><![CDATA[<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><h4 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a>添加依赖</h4><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-gateway<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 新版gateway需要加上lb依赖 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-loadbalancer<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -87,6 +101,13 @@
       </tags>
   </entry>
   <entry>
+    <title></title>
+    <url>/2023/05/26/virtualbox-an-zhuang-ubuntu-xian-shi-bu-quan/</url>
+    <content><![CDATA[<p>页面显示不全，无法点击下一步</p>
+<p>点击<strong>Alt+F7</strong>,鼠标晃动即可拖拽页面进行下一步。</p>
+]]></content>
+  </entry>
+  <entry>
     <title>初识docker</title>
     <url>/2023/05/07/chu-shi-docker/</url>
     <content><![CDATA[<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>没啥可说的,按照官方文档安装即可</p>
@@ -150,7 +171,7 @@
   </entry>
   <entry>
     <title>提高记忆力的方法</title>
-    <url>/2023/05/21/ti-gao-ji-yi-li-de-fang-fa/</url>
+    <url>/2023/05/26/ti-gao-ji-yi-li-de-fang-fa/</url>
     <content><![CDATA[<h1 id="首先，从身体层面上"><a href="#首先，从身体层面上" class="headerlink" title="首先，从身体层面上"></a>首先，从身体层面上</h1><h2 id="作息一定要规律"><a href="#作息一定要规律" class="headerlink" title="作息一定要规律"></a>作息一定要规律</h2><h2 id="饮食一定要均衡"><a href="#饮食一定要均衡" class="headerlink" title="饮食一定要均衡"></a>饮食一定要均衡</h2><h2 id="运动一定要达标"><a href="#运动一定要达标" class="headerlink" title="运动一定要达标"></a>运动一定要达标</h2><h1 id="其次，在方法上"><a href="#其次，在方法上" class="headerlink" title="其次，在方法上"></a>其次，在方法上</h1>]]></content>
       <categories>
         <category>随笔</category>

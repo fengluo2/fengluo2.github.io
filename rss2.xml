@@ -15,14 +15,39 @@
     <atom:link href="http://example.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>枫珞的博客，有各种各样的东西。</description>
-    <pubDate>Sun, 21 May 2023 13:34:31 GMT</pubDate>
+    <pubDate>Fri, 26 May 2023 07:04:55 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
+      <title></title>
+      <link>http://example.com/2023/05/26/virtualbox-an-zhuang-ubuntu-xian-shi-bu-quan/</link>
+      <guid>http://example.com/2023/05/26/virtualbox-an-zhuang-ubuntu-xian-shi-bu-quan/</guid>
+      <pubDate>Fri, 26 May 2023 07:04:55 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;页面显示不全，无法点击下一步&lt;/p&gt;
+&lt;p&gt;点击&lt;strong&gt;Alt+F7&lt;/strong&gt;,鼠标晃动即可拖拽页面进行下一步。&lt;/p&gt;
+</description>
+          
+        
+      
+      
+      
+      
+      
+      
+      <comments>http://example.com/2023/05/26/virtualbox-an-zhuang-ubuntu-xian-shi-bu-quan/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
       <title>提高记忆力的方法</title>
-      <link>http://example.com/2023/05/21/ti-gao-ji-yi-li-de-fang-fa/</link>
-      <guid>http://example.com/2023/05/21/ti-gao-ji-yi-li-de-fang-fa/</guid>
-      <pubDate>Sun, 21 May 2023 13:34:31 GMT</pubDate>
+      <link>http://example.com/2023/05/26/ti-gao-ji-yi-li-de-fang-fa/</link>
+      <guid>http://example.com/2023/05/26/ti-gao-ji-yi-li-de-fang-fa/</guid>
+      <pubDate>Fri, 26 May 2023 07:04:55 GMT</pubDate>
       
         
         
@@ -39,7 +64,35 @@
       
       
       
-      <comments>http://example.com/2023/05/21/ti-gao-ji-yi-li-de-fang-fa/#disqus_thread</comments>
+      <comments>http://example.com/2023/05/26/ti-gao-ji-yi-li-de-fang-fa/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Linux中查找所有文件中含有特定字符串的脚本</title>
+      <link>http://example.com/2023/05/25/linux-zhong-cha-zhao-suo-you-wen-jian-zhong-han-you-te-ding-zi-fu-chuan-de-jiao-ben/</link>
+      <guid>http://example.com/2023/05/25/linux-zhong-cha-zhao-suo-you-wen-jian-zhong-han-you-te-ding-zi-fu-chuan-de-jiao-ben/</guid>
+      <pubDate>Thu, 25 May 2023 21:30:58 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;查找所有文件，命令：&lt;code&gt;sudo ./find.sh [路径]&lt;/code&gt;&lt;br&gt;他会查找该目录所有文件，并将匹配的文件和内容输出&lt;/p&gt;
+&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</description>
+          
+        
+      
+      
+      
+      
+      <category domain="http://example.com/categories/script/">script</category>
+      
+      
+      <category domain="http://example.com/tags/linux/">linux</category>
+      
+      
+      <comments>http://example.com/2023/05/25/linux-zhong-cha-zhao-suo-you-wen-jian-zhong-han-you-te-ding-zi-fu-chuan-de-jiao-ben/#disqus_thread</comments>
       
     </item>
     
