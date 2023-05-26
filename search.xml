@@ -38,6 +38,60 @@
       </tags>
   </entry>
   <entry>
+    <title>git常用命令</title>
+    <url>/2023/05/26/git-chang-yong-ming-ling/</url>
+    <content><![CDATA[<h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git add [文件/文件夹]</span><br></pre></td></tr></table></figure>
+
+<p>开始追踪文件</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git commit [-a|-m &#123;消息&#125;]</span><br></pre></td></tr></table></figure>
+<p>提交更改</p>
+<ul>
+<li><p><code>-a</code>：为已追踪文件运行<code>git add</code></p>
+</li>
+<li><p><code>-m</code>：添加本次提交消息</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git rm [文件/文件夹]</span><br></pre></td></tr></table></figure>
+
+<p>  停止追踪并删除该文件</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git log [--oneline|--decorate|--max-count]</span><br></pre></td></tr></table></figure>
+
+<p>显示git日志</p>
+<ul>
+<li><p><code>--oneline</code>：减少显示的哈希值长度</p>
+</li>
+<li><p><code>--decorate</code>：装饰，打印出显示的任何提交的引用名称。如果指定了<em>short</em> ，则不会打印ref 名称前缀<em>refs&#x2F;heads&#x2F;<em>、</em>refs&#x2F;tags&#x2F;<em>和 <em>refs&#x2F;remotes&#x2F; 。</em>如果指定了</em>full</em>，将打印完整的 ref 名称（包括前缀）。如果指定了<em>auto</em>，那么如果输出到终端，则显示 ref 名称，就好像给出了<em>short一样，否则不显示任何 ref 名称。</em>该选项<code>--decorate</code>是<code>--decorate=short</code>. 如果已配置，则默认为配置值<code>log.decorate</code>，否则为<code>auto</code></p>
+</li>
+<li><p><code>--max-count</code>：显示最多多少行，还可以选择限制条件一起限制</p>
+</li>
+</ul>
+<h1 id="分支相关"><a href="#分支相关" class="headerlink" title="分支相关"></a>分支相关</h1><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git branch [新分支名称，如不填写，则可以查看所有分支]</span><br></pre></td></tr></table></figure>
+
+<p>迁出分支</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git checkout [-b|-d] [分支名称]</span><br></pre></td></tr></table></figure>
+
+<p>切换分支</p>
+<ul>
+<li><code>-b</code>：相当于<code>git branch [分支名称]</code>，直接创建并切换到新分支</li>
+<li><code>-d</code>：删除分支</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git merge [分支名]</span><br></pre></td></tr></table></figure>
+<p>合并分支</p>
+<h1 id="Git工具"><a href="#Git工具" class="headerlink" title="Git工具"></a>Git工具</h1><h2 id="储藏与清理"><a href="#储藏与清理" class="headerlink" title="储藏与清理"></a>储藏与清理</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git stash</span><br></pre></td></tr></table></figure>
+
+<p>暂存进度，将其放入栈内</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git stash list</span><br></pre></td></tr></table></figure>
+
+<p>查看存储的东西</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git stash apply [还原的储藏名称，不填则还原栈顶的储藏]</span><br></pre></td></tr></table></figure>
+
+<p>还原储藏，可指定储藏名称</p>
+]]></content>
+      <tags>
+        <tag>-git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>/2023/04/27/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
