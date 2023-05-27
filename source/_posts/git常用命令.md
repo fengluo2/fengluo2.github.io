@@ -2,7 +2,7 @@
 title: git常用命令
 date: 2023-05-26 16:47:33
 tags:
-    -git
+    - git
 ---
 
 # 基础
