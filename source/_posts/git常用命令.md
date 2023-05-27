@@ -21,13 +21,13 @@ git commit [-a|-m {消息}]
 
 - `-m`：添加本次提交消息  
 
-```
+```sh
 git rm [文件/文件夹]
 ```
 
   停止追踪并删除该文件
 
-```
+```sh
 git log [--oneline|--decorate|--max-count]
 ```
 
