@@ -15,14 +15,14 @@
     <atom:link href="http://example.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>枫珞的博客，有各种各样的东西。</description>
-    <pubDate>Sat, 27 May 2023 03:53:26 GMT</pubDate>
+    <pubDate>Sat, 27 May 2023 03:53:47 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
       <title>提高记忆力的方法</title>
       <link>http://example.com/2023/05/27/ti-gao-ji-yi-li-de-fang-fa/</link>
       <guid>http://example.com/2023/05/27/ti-gao-ji-yi-li-de-fang-fa/</guid>
-      <pubDate>Sat, 27 May 2023 03:53:26 GMT</pubDate>
+      <pubDate>Sat, 27 May 2023 03:53:47 GMT</pubDate>
       
         
         
@@ -61,7 +61,7 @@
       
       
       
-      <category domain="http://example.com/tags/git/">-git</category>
+      <category domain="http://example.com/tags/git/">git</category>
       
       
       <comments>http://example.com/2023/05/26/git-chang-yong-ming-ling/#disqus_thread</comments>
