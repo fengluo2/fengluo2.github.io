@@ -155,11 +155,15 @@
       </tags>
   </entry>
   <entry>
-    <title></title>
-    <url>/2023/05/27/virtualbox-an-zhuang-ubuntu-xian-shi-bu-quan/</url>
+    <title>virtualbox安装Ubuntu显示不全</title>
+    <url>/2023/05/06/virtualbox-an-zhuang-ubuntu-xian-shi-bu-quan/</url>
     <content><![CDATA[<p>页面显示不全，无法点击下一步</p>
 <p>点击<strong>Alt+F7</strong>,鼠标晃动即可拖拽页面进行下一步。</p>
 ]]></content>
+      <tags>
+        <tag>VirtualBox</tag>
+        <tag>Ubuntu</tag>
+      </tags>
   </entry>
   <entry>
     <title>初识docker</title>
