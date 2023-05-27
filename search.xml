@@ -51,10 +51,10 @@
 <li><p><code>-m</code>：添加本次提交消息</p>
 </li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git rm [文件/文件夹]</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">rm</span> [文件/文件夹]</span><br></pre></td></tr></table></figure>
 
 <p>  停止追踪并删除该文件</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git log [--oneline|--decorate|--max-count]</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">log</span> [--oneline|--decorate|--max-count]</span><br></pre></td></tr></table></figure>
 
 <p>显示git日志</p>
 <ul>
