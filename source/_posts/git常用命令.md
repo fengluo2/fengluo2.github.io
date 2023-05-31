@@ -2,7 +2,7 @@
 title: git常用命令
 date: 2023-05-26 16:47:33
 tags:
-    -git
+    - git
 ---
 
 ## 基础
@@ -24,10 +24,13 @@ git commit [-a|-m {消息}]
 - `-m`：添加本次提交消息  
 
 ```sh
+```sh
 git rm [文件/文件夹]
 ```
 
   停止追踪并删除该文件
+
+```sh
   
 ```sh
 git log [--oneline|--decorate|--max-count]
