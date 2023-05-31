@@ -921,7 +921,7 @@ CDN:
 
   # Custom format
   # For example: https://cdn.staticfile.org/${cdnjs_name}/${version}/${min_cdnjs_file}
-  custom_format: https://unpkg.zhimg.com/${cdnjs_name}/${version}/${min_cdnjs_file}
+  custom_format: https://unpkg.zhimg.com/${cdnjs_name}@${version}/${min_cdnjs_file}
 
   option:
     # main_css:
