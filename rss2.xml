@@ -15,23 +15,29 @@
     <atom:link href="http://example.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>枫珞的博客，有各种各样的东西。</description>
-    <pubDate>Sun, 28 May 2023 04:28:42 GMT</pubDate>
+    <pubDate>Wed, 31 May 2023 04:28:42 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
-      <title>链表</title>
-      <link>http://example.com/2023/05/28/lian-biao/</link>
-      <guid>http://example.com/2023/05/28/lian-biao/</guid>
+      <title>算法</title>
+      <link>http://example.com/2023/05/28/suan-fa-bi-ji/</link>
+      <guid>http://example.com/2023/05/28/suan-fa-bi-ji/</guid>
       <pubDate>Sun, 28 May 2023 04:28:42 GMT</pubDate>
       
+        
+        
+          
+          
+      <description>&lt;h2 id=&quot;查找算法&quot;&gt;&lt;a href=&quot;#查找算法&quot; class=&quot;headerlink&quot;</description>
+          
+        
       
       
       
-      <category domain="http://example.com/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</category>
       
       
       
-      <comments>http://example.com/2023/05/28/lian-biao/#disqus_thread</comments>
+      <comments>http://example.com/2023/05/28/suan-fa-bi-ji/#disqus_thread</comments>
       
     </item>
     
