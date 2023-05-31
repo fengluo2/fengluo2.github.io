@@ -6,7 +6,7 @@ tags:
     - java
     - nacos
 categories:
-    - spring-cloud
+    - spring cloud
 ---
 ## nacos分级存储模型
 

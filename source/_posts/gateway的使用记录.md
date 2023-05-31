@@ -6,7 +6,7 @@ tags:
   - java
   - gateway
 categories:
-    - spring-cloud
+    - spring cloud
 ---
 ## 使用
 
