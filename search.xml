@@ -29,7 +29,7 @@
 <h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>Gateway不是Nginx，他只是分流，没有做代理!!</p>
 ]]></content>
       <categories>
-        <category>spring-cloud</category>
+        <category>spring cloud</category>
       </categories>
       <tags>
         <tag>java</tag>
@@ -148,7 +148,7 @@
 </ol>
 ]]></content>
       <categories>
-        <category>spring-cloud</category>
+        <category>spring cloud</category>
       </categories>
       <tags>
         <tag>java</tag>
@@ -262,11 +262,11 @@
       </tags>
   </entry>
   <entry>
-    <title>初识docker</title>
+    <title>链表</title>
     <url>/2023/05/28/lian-biao/</url>
     <content><![CDATA[]]></content>
       <categories>
-        <category>data structure</category>
+        <category>数据结构</category>
       </categories>
   </entry>
   <entry>
