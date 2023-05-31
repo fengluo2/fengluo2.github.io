@@ -6,15 +6,15 @@ tags:
 categories:
   - docker
 ---
-# 安装
+## 安装
 
 没啥可说的,按照官方文档安装即可
 
-# 基本操作
+## 基本操作
 
 通过`docker --help`了解命令
 
-## 镜像操作
+### 镜像操作
 
 ```sh
 docker save -o [保存的目标文件名称] [镜像名称]
@@ -22,7 +22,7 @@ docker rmi [镜像名称]
 docker load -i [目标文件名称]
 ```
 
-## 容器操作
+### 容器操作
 
 容器保护三个状态：
 
@@ -53,9 +53,9 @@ docker exec -it mn bash
 - mn ：要进入的容器的名称
 - bash：进入容器后执行的命令，bash是一个linux终端交互命令
 
-## 数据卷
+### 数据卷
 
-### 数据卷操作的基本语法如下
+#### 数据卷操作的基本语法如下
 
 ```sh
 docker volume [COMMAND]
@@ -69,7 +69,7 @@ docker volume [COMMAND]
 - prune 删除未使用的volume
 - rm 删除一个或多个指定的volume
 
-### 挂载数据卷
+#### 挂载数据卷
 
 我们在创建容器时，可以通过 -v 参数来挂载一个数据卷到某个容器内目录，命令格式如下：
 

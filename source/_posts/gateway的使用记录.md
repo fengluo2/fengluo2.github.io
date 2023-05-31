@@ -8,9 +8,9 @@ tags:
 categories:
     - spring-cloud
 ---
-### 使用
+## 使用
 
-#### 添加依赖
+### 添加依赖
 
 ```xml
 <dependency>
@@ -24,13 +24,13 @@ categories:
 </dependency>
 ```
 
-#### 过滤器  
+### 过滤器  
 
 1. gateway可以添加过滤器，以实现修改请求头，鉴权等功能`(实现GlobalFilter接口)`，并加入`@Component`注解,`@Order`注解设置优先级  
 2. 请求路由后 当前路由的过滤器 -> DefaultFilter -> GobalFilter 合并到一个过滤器链,排序后依次执行  
 3. 当过滤器的值一样时,会按照defaultFilter -> 路由过滤器 -> GobalFilter的顺序执行
 
-#### 跨域
+### 跨域
 
 开卷考试
 

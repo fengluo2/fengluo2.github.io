@@ -5,7 +5,7 @@ tags:
     -git
 ---
 
-# 基础
+## 基础
 
 ```sh
 git add [文件/文件夹]
@@ -16,18 +16,20 @@ git add [文件/文件夹]
 ```sh
 git commit [-a|-m {消息}]
 ```
+
 提交更改
+
 - `-a`：为已追踪文件运行`git add`
 
 - `-m`：添加本次提交消息  
 
-```
+```sh
 git rm [文件/文件夹]
 ```
 
   停止追踪并删除该文件
-
-```
+  
+```sh
 git log [--oneline|--decorate|--max-count]
 ```
 
@@ -39,7 +41,7 @@ git log [--oneline|--decorate|--max-count]
 
 - `--max-count`：显示最多多少行，还可以选择限制条件一起限制
 
-# 分支相关
+## 分支相关
 
 ```sh
 git branch [新分支名称，如不填写，则可以查看所有分支]
@@ -59,11 +61,12 @@ git checkout [-b|-d] [分支名称]
 ```sh
 git merge [分支名]
 ```
+
 合并分支
 
-# Git工具
+## Git工具
 
-## 储藏与清理
+### 储藏与清理
 
 ```sh
 git stash

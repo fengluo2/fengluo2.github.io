@@ -32,4 +32,3 @@ function scan {
 echo 'start scan'
 scan $1
 ```
-
