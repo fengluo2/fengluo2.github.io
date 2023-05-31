@@ -5,7 +5,6 @@
     <url>/2023/05/25/linux-zhong-cha-zhao-suo-you-wen-jian-zhong-han-you-te-ding-zi-fu-chuan-de-jiao-ben/</url>
     <content><![CDATA[<p>查找所有文件，命令：<code>sudo ./find.sh [路径]</code><br>他会查找该目录所有文件，并将匹配的文件和内容输出</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">maple</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"></span></span><br><span class="line"><span class="language-bash"></span></span><br><span class="line">function scan &#123;</span><br><span class="line">        if [ -f $1 ];then</span><br><span class="line">                echo &#x27;file&#x27; $1</span><br><span class="line">                cat $1 | grep &#x27;[0-9]\+&#x27; # 这里匹配的是正则表达式，根据需要自行修改</span><br><span class="line">        elif [ -d $1 ];then</span><br><span class="line">                for f in `ls -a $1`;do # la -a 会匹配所有文件，所有将 . 和 .. 排除 </span><br><span class="line">                        if [ $f = &#x27;.&#x27; ] || [ $f = &#x27;..&#x27; ];then</span><br><span class="line">                                continue</span><br><span class="line">                        else</span><br><span class="line">                                scan $1/$f # 递归扫描</span><br><span class="line">                        fi</span><br><span class="line">                done</span><br><span class="line">        fi</span><br><span class="line">&#125;</span><br><span class="line">echo &#x27;start scan&#x27;</span><br><span class="line">scan $1</span><br></pre></td></tr></table></figure>
-
 ]]></content>
       <categories>
         <category>script</category>
@@ -17,14 +16,14 @@
   <entry>
     <title>gateway的使用记录</title>
     <url>/2023/05/07/gateway-de-shi-yong-ji-lu/</url>
-    <content><![CDATA[<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><h4 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a>添加依赖</h4><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-gateway<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 新版gateway需要加上lb依赖 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-loadbalancer<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+    <content><![CDATA[<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a>添加依赖</h3><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-gateway<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 新版gateway需要加上lb依赖 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-loadbalancer<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h4><ol>
+<h3 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h3><ol>
 <li>gateway可以添加过滤器，以实现修改请求头，鉴权等功能<code>(实现GlobalFilter接口)</code>，并加入<code>@Component</code>注解,<code>@Order</code>注解设置优先级  </li>
 <li>请求路由后 当前路由的过滤器 -&gt; DefaultFilter -&gt; GobalFilter 合并到一个过滤器链,排序后依次执行  </li>
 <li>当过滤器的值一样时,会按照defaultFilter -&gt; 路由过滤器 -&gt; GobalFilter的顺序执行</li>
 </ol>
-<h4 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h4><p>开卷考试</p>
+<h3 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h3><p>开卷考试</p>
 <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">cloud:</span></span><br><span class="line">    <span class="attr">gateway:</span></span><br><span class="line">      <span class="attr">globalcors:</span> <span class="comment"># 全局的跨域处理</span></span><br><span class="line">        <span class="attr">add-to-simple-url-handler-mapping:</span> <span class="literal">true</span> <span class="comment"># 解决options请求被拦截问题</span></span><br><span class="line">        <span class="attr">corsConfigurations:</span></span><br><span class="line">          <span class="string">&#x27;[/**]&#x27;</span><span class="string">:</span></span><br><span class="line">            <span class="attr">allowedOrigins:</span> <span class="comment"># 允许哪些网站的跨域请求</span></span><br><span class="line">              <span class="bullet">-</span> <span class="string">&quot;http://localhost:8090&quot;</span></span><br><span class="line">              <span class="bullet">-</span> <span class="string">&quot;http://www.leyou.com&quot;</span></span><br><span class="line">            <span class="attr">allowedMethods:</span> <span class="comment"># 允许的跨域ajax的请求方式</span></span><br><span class="line">              <span class="bullet">-</span> <span class="string">&quot;GET&quot;</span></span><br><span class="line">              <span class="bullet">-</span> <span class="string">&quot;POST&quot;</span></span><br><span class="line">              <span class="bullet">-</span> <span class="string">&quot;DELETE&quot;</span></span><br><span class="line">              <span class="bullet">-</span> <span class="string">&quot;PUT&quot;</span></span><br><span class="line">              <span class="bullet">-</span> <span class="string">&quot;OPTIONS&quot;</span></span><br><span class="line">            <span class="attr">allowedHeaders:</span> <span class="string">&quot;*&quot;</span> <span class="comment"># 允许在请求中携带的头信息</span></span><br><span class="line">            <span class="attr">allowCredentials:</span> <span class="literal">true</span> <span class="comment"># 是否允许携带cookie</span></span><br><span class="line">            <span class="attr">maxAge:</span> <span class="number">360000</span> <span class="comment"># 这次跨域检测的有效期</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>Gateway不是Nginx，他只是分流，没有做代理!!</p>
@@ -40,10 +39,11 @@
   <entry>
     <title>git常用命令</title>
     <url>/2023/05/26/git-chang-yong-ming-ling/</url>
-    <content><![CDATA[<h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git add [文件/文件夹]</span><br></pre></td></tr></table></figure>
+    <content><![CDATA[<h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git add [文件/文件夹]</span><br></pre></td></tr></table></figure>
 
 <p>开始追踪文件</p>
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git commit [-a|-m &#123;消息&#125;]</span><br></pre></td></tr></table></figure>
+
 <p>提交更改</p>
 <ul>
 <li><p><code>-a</code>：为已追踪文件运行<code>git add</code></p>
@@ -51,10 +51,10 @@
 <li><p><code>-m</code>：添加本次提交消息</p>
 </li>
 </ul>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">rm</span> [文件/文件夹]</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">```sh</span><br><span class="line">git <span class="built_in">rm</span> [文件/文件夹]</span><br></pre></td></tr></table></figure>
 
 <p>  停止追踪并删除该文件</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">log</span> [--oneline|--decorate|--max-count]</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">  </span><br><span class="line">```sh</span><br><span class="line">git <span class="built_in">log</span> [--oneline|--decorate|--max-count]</span><br></pre></td></tr></table></figure>
 
 <p>显示git日志</p>
 <ul>
@@ -65,7 +65,7 @@
 <li><p><code>--max-count</code>：显示最多多少行，还可以选择限制条件一起限制</p>
 </li>
 </ul>
-<h1 id="分支相关"><a href="#分支相关" class="headerlink" title="分支相关"></a>分支相关</h1><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git branch [新分支名称，如不填写，则可以查看所有分支]</span><br></pre></td></tr></table></figure>
+<h2 id="分支相关"><a href="#分支相关" class="headerlink" title="分支相关"></a>分支相关</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git branch [新分支名称，如不填写，则可以查看所有分支]</span><br></pre></td></tr></table></figure>
 
 <p>迁出分支</p>
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git checkout [-b|-d] [分支名称]</span><br></pre></td></tr></table></figure>
@@ -76,8 +76,9 @@
 <li><code>-d</code>：删除分支</li>
 </ul>
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git merge [分支名]</span><br></pre></td></tr></table></figure>
+
 <p>合并分支</p>
-<h1 id="Git工具"><a href="#Git工具" class="headerlink" title="Git工具"></a>Git工具</h1><h2 id="储藏与清理"><a href="#储藏与清理" class="headerlink" title="储藏与清理"></a>储藏与清理</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git stash</span><br></pre></td></tr></table></figure>
+<h2 id="Git工具"><a href="#Git工具" class="headerlink" title="Git工具"></a>Git工具</h2><h3 id="储藏与清理"><a href="#储藏与清理" class="headerlink" title="储藏与清理"></a>储藏与清理</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git stash</span><br></pre></td></tr></table></figure>
 
 <p>暂存进度，将其放入栈内</p>
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git stash list</span><br></pre></td></tr></table></figure>
@@ -122,27 +123,27 @@
   <entry>
     <title>nacos使用记录</title>
     <url>/2023/05/06/nacos-shi-yong-ji-lu/</url>
-    <content><![CDATA[<h3 id="1-nacos分级存储模型"><a href="#1-nacos分级存储模型" class="headerlink" title="1.nacos分级存储模型"></a>1.nacos分级存储模型</h3><ol>
+    <content><![CDATA[<h2 id="nacos分级存储模型"><a href="#nacos分级存储模型" class="headerlink" title="nacos分级存储模型"></a>nacos分级存储模型</h2><ol>
 <li>服务，如userservice</li>
 <li>集群，如杭州、上海</li>
 <li>实例</li>
 </ol>
-<h3 id="2-服务发现和服务注册"><a href="#2-服务发现和服务注册" class="headerlink" title="2.服务发现和服务注册"></a>2.服务发现和服务注册</h3><p>添加依赖  </p>
+<h2 id="服务发现和服务注册"><a href="#服务发现和服务注册" class="headerlink" title="服务发现和服务注册"></a>服务发现和服务注册</h2><p>添加依赖  </p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-alibaba-nacos-discovery<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>配置，与eureka类似，也需要配置服务器，还可以配置集群<code>(默认为同一集群)</code>名称</p>
 <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">cloud:</span></span><br><span class="line">    <span class="attr">nacos:</span></span><br><span class="line">      <span class="attr">server-addr:</span> <span class="string">localhost:8848</span></span><br><span class="line">      <span class="attr">discovery:</span></span><br><span class="line">        <span class="attr">cluster-name:</span> <span class="string">DEFAULT</span> <span class="comment">## 集群名称</span></span><br><span class="line">        <span class="attr">namespace:</span>            <span class="comment">## 命名空间</span></span><br><span class="line">        <span class="attr">ephemeral:</span> <span class="literal">true</span>       <span class="comment">## 临时实例</span></span><br></pre></td></tr></table></figure>
 
 <p>或者在启动加入<code>-Dspring.cloud.nacos.discovery.cluster-name=SH</code></p>
-<h3 id="3-负载均衡"><a href="#3-负载均衡" class="headerlink" title="3.负载均衡"></a>3.负载均衡</h3><p>新版nacos已经包含ribbon<br>可以使用loadbalancer实现负载均衡</p>
-<h3 id="4-配置中心"><a href="#4-配置中心" class="headerlink" title="4.配置中心"></a>4.配置中心</h3><p>添加依赖  </p>
+<h2 id="负载均衡"><a href="#负载均衡" class="headerlink" title="负载均衡"></a>负载均衡</h2><p>新版nacos已经包含ribbon<br>可以使用loadbalancer实现负载均衡</p>
+<h2 id="配置中心"><a href="#配置中心" class="headerlink" title="配置中心"></a>配置中心</h2><p>添加依赖  </p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-alibaba-nacos-config<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 对于高版本的springcloud，还需要这个，要不然无法读取bootstrap.yml文件 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-bootstrap<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>添加bootstrap.yml文件<br>配置  </p>
 <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">application:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">education-service</span></span><br><span class="line">  <span class="attr">profiles:</span></span><br><span class="line">    <span class="attr">active:</span> <span class="string">dev</span></span><br><span class="line">  <span class="attr">cloud:</span></span><br><span class="line">    <span class="attr">nacos:</span></span><br><span class="line">      <span class="attr">server-addr:</span> <span class="string">localhost:8848</span></span><br><span class="line">      <span class="attr">config:</span></span><br><span class="line">        <span class="attr">file-extension:</span> <span class="string">yaml</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="5-实现热更新"><a href="#5-实现热更新" class="headerlink" title="5.实现热更新"></a>5.实现热更新</h3><p>使用<code>@ConfigurationProperties</code>的属性配置注解注入，自动刷新<br>通过<code>@Value</code>注解注入，结合<code>@RefreshScope</code>注解实现刷新  </p>
-<h3 id="6-注意"><a href="#6-注意" class="headerlink" title="6.注意"></a>6.注意</h3><ol>
+<h2 id="实现热更新"><a href="#实现热更新" class="headerlink" title="实现热更新"></a>实现热更新</h2><p>使用<code>@ConfigurationProperties</code>的属性配置注解注入，自动刷新<br>通过<code>@Value</code>注解注入，结合<code>@RefreshScope</code>注解实现刷新  </p>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ol>
 <li>不是所有的配置都适合放到配置中心，将一些关键参数，需要运行时要调整的参数放到nacos配置中心，一般都是自定义配置</li>
 </ol>
 ]]></content>
@@ -168,11 +169,11 @@
   <entry>
     <title>初识docker</title>
     <url>/2023/05/07/chu-shi-docker/</url>
-    <content><![CDATA[<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>没啥可说的,按照官方文档安装即可</p>
-<h1 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h1><p>通过<code>docker --help</code>了解命令</p>
-<h2 id="镜像操作"><a href="#镜像操作" class="headerlink" title="镜像操作"></a>镜像操作</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">docker save -o [保存的目标文件名称] [镜像名称]</span><br><span class="line">docker rmi [镜像名称]</span><br><span class="line">docker load -i [目标文件名称]</span><br></pre></td></tr></table></figure>
+    <content><![CDATA[<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>没啥可说的,按照官方文档安装即可</p>
+<h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><p>通过<code>docker --help</code>了解命令</p>
+<h3 id="镜像操作"><a href="#镜像操作" class="headerlink" title="镜像操作"></a>镜像操作</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">docker save -o [保存的目标文件名称] [镜像名称]</span><br><span class="line">docker rmi [镜像名称]</span><br><span class="line">docker load -i [目标文件名称]</span><br></pre></td></tr></table></figure>
 
-<h2 id="容器操作"><a href="#容器操作" class="headerlink" title="容器操作"></a>容器操作</h2><p>容器保护三个状态：</p>
+<h3 id="容器操作"><a href="#容器操作" class="headerlink" title="容器操作"></a>容器操作</h3><p>容器保护三个状态：</p>
 <ul>
 <li>运行：进程正常运行</li>
 <li>暂停：进程暂停，CPU不再运行，并不释放内存</li>
@@ -203,7 +204,7 @@
 <li>mn ：要进入的容器的名称</li>
 <li>bash：进入容器后执行的命令，bash是一个linux终端交互命令</li>
 </ul>
-<h2 id="数据卷"><a href="#数据卷" class="headerlink" title="数据卷"></a>数据卷</h2><h3 id="数据卷操作的基本语法如下"><a href="#数据卷操作的基本语法如下" class="headerlink" title="数据卷操作的基本语法如下"></a>数据卷操作的基本语法如下</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">docker volume [COMMAND]</span><br></pre></td></tr></table></figure>
+<h3 id="数据卷"><a href="#数据卷" class="headerlink" title="数据卷"></a>数据卷</h3><h4 id="数据卷操作的基本语法如下"><a href="#数据卷操作的基本语法如下" class="headerlink" title="数据卷操作的基本语法如下"></a>数据卷操作的基本语法如下</h4><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">docker volume [COMMAND]</span><br></pre></td></tr></table></figure>
 
 <p><code>docker volume</code>命令是数据卷操作，根据命令后跟随的<code>command</code>来确定下一步的操作：</p>
 <ul>
@@ -213,7 +214,7 @@
 <li>prune 删除未使用的volume</li>
 <li>rm 删除一个或多个指定的volume</li>
 </ul>
-<h3 id="挂载数据卷"><a href="#挂载数据卷" class="headerlink" title="挂载数据卷"></a>挂载数据卷</h3><p>我们在创建容器时，可以通过 -v 参数来挂载一个数据卷到某个容器内目录，命令格式如下：</p>
+<h4 id="挂载数据卷"><a href="#挂载数据卷" class="headerlink" title="挂载数据卷"></a>挂载数据卷</h4><p>我们在创建容器时，可以通过 -v 参数来挂载一个数据卷到某个容器内目录，命令格式如下：</p>
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">docker run \</span><br><span class="line">  --name mn \</span><br><span class="line">  -v [数据卷名称或宿主机目录或宿主机文件:容器内目录或文件] \</span><br><span class="line">  -p 8080:80</span><br><span class="line">  ppp \</span><br></pre></td></tr></table></figure>
 
 <p>这里的-v就是挂载数据卷的命令：</p>
@@ -230,7 +231,7 @@
   <entry>
     <title>提高记忆力的方法</title>
     <url>/2023/05/20/ti-gao-ji-yi-li-de-fang-fa/</url>
-    <content><![CDATA[<h1 id="首先，从身体层面上"><a href="#首先，从身体层面上" class="headerlink" title="首先，从身体层面上"></a>首先，从身体层面上</h1><h2 id="作息一定要规律"><a href="#作息一定要规律" class="headerlink" title="作息一定要规律"></a>作息一定要规律</h2><h2 id="饮食一定要均衡"><a href="#饮食一定要均衡" class="headerlink" title="饮食一定要均衡"></a>饮食一定要均衡</h2><h2 id="运动一定要达标"><a href="#运动一定要达标" class="headerlink" title="运动一定要达标"></a>运动一定要达标</h2><h1 id="其次，在方法上"><a href="#其次，在方法上" class="headerlink" title="其次，在方法上"></a>其次，在方法上</h1>]]></content>
+    <content><![CDATA[<h2 id="首先，从身体层面上"><a href="#首先，从身体层面上" class="headerlink" title="首先，从身体层面上"></a>首先，从身体层面上</h2><h3 id="作息一定要规律"><a href="#作息一定要规律" class="headerlink" title="作息一定要规律"></a>作息一定要规律</h3><h3 id="饮食一定要均衡"><a href="#饮食一定要均衡" class="headerlink" title="饮食一定要均衡"></a>饮食一定要均衡</h3><h3 id="运动一定要达标"><a href="#运动一定要达标" class="headerlink" title="运动一定要达标"></a>运动一定要达标</h3><h2 id="其次，在方法上"><a href="#其次，在方法上" class="headerlink" title="其次，在方法上"></a>其次，在方法上</h2>]]></content>
       <categories>
         <category>随笔</category>
       </categories>
@@ -259,6 +260,14 @@
       <tags>
         <tag>GithubAction</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>初识docker</title>
+    <url>/2023/05/28/lian-biao/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>data structure</category>
+      </categories>
   </entry>
   <entry>
     <title>麻绳专挑细处断,噩运只找苦命人</title>
