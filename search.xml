@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>Linux中查找所有文件中含有特定字符串的脚本</title>
-    <url>/2023/05/25/Linux%E4%B8%AD%E6%9F%A5%E6%89%BE%E6%89%80%E6%9C%89%E6%96%87%E4%BB%B6%E4%B8%AD%E5%90%AB%E6%9C%89%E7%89%B9%E5%AE%9A%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E8%84%9A%E6%9C%AC/</url>
+    <url>/2023/05/25/linuxzhong-cha-zhao-suo-you-wen-jian-zhong-han-you-te-ding-zi-fu-chuan-de-jiao-ben/</url>
     <content><![CDATA[<p>查找所有文件，命令：<code>sudo ./find.sh [路径]</code><br>他会查找该目录所有文件，并将匹配的文件和内容输出</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">maple</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"></span></span><br><span class="line"><span class="language-bash"></span></span><br><span class="line">function scan &#123;</span><br><span class="line">        if [ -f $1 ];then</span><br><span class="line">                echo &#x27;file&#x27; $1</span><br><span class="line">                cat $1 | grep &#x27;[0-9]\+&#x27; # 这里匹配的是正则表达式，根据需要自行修改</span><br><span class="line">        elif [ -d $1 ];then</span><br><span class="line">                for f in `ls -a $1`;do # la -a 会匹配所有文件，所有将 . 和 .. 排除 </span><br><span class="line">                        if [ $f = &#x27;.&#x27; ] || [ $f = &#x27;..&#x27; ];then</span><br><span class="line">                                continue</span><br><span class="line">                        else</span><br><span class="line">                                scan $1/$f # 递归扫描</span><br><span class="line">                        fi</span><br><span class="line">                done</span><br><span class="line">        fi</span><br><span class="line">&#125;</span><br><span class="line">echo &#x27;start scan&#x27;</span><br><span class="line">scan $1</span><br></pre></td></tr></table></figure>
 ]]></content>
@@ -15,7 +15,7 @@
   </entry>
   <entry>
     <title>gateway的使用记录</title>
-    <url>/2023/05/07/gateway%E7%9A%84%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/</url>
+    <url>/2023/05/07/gatewayde-shi-yong-ji-lu/</url>
     <content><![CDATA[<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a>添加依赖</h3><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-gateway<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 新版gateway需要加上lb依赖 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-loadbalancer<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h3 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h3><ol>
 <li>gateway可以添加过滤器，以实现修改请求头，鉴权等功能<code>(实现GlobalFilter接口)</code>，并加入<code>@Component</code>注解,<code>@Order</code>注解设置优先级  </li>
@@ -36,7 +36,7 @@
   </entry>
   <entry>
     <title>git常用命令</title>
-    <url>/2023/05/26/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    <url>/2023/05/26/gitchang-yong-ming-ling/</url>
     <content><![CDATA[<h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git add [文件/文件夹]</span><br></pre></td></tr></table></figure>
 <p>开始追踪文件</p>
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git commit [-a|-m &#123;消息&#125;]</span><br></pre></td></tr></table></figure>
@@ -96,7 +96,7 @@
   </entry>
   <entry>
     <title>jackson的简单使用</title>
-    <url>/2023/05/06/jackson%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</url>
+    <url>/2023/05/06/jacksonde-jian-dan-shi-yong/</url>
     <content><![CDATA[<p>jackson是一款安全的json处理框架<br>大部分都依靠<code>ObjectMapper</code>这个工具类据处理json对象<br>jackson里的json对象分三种<code>JsonNode</code>,<code>ObjectNode</code>和<code>ArrayNode</code><br><code>JsonNode</code>不可更改,<code>ObjectNode</code>是可变的,<code>ArraryNode</code>是列表<br>输出的缩进格式可以更改</p>
 ]]></content>
       <tags>
@@ -106,7 +106,7 @@
   </entry>
   <entry>
     <title>nacos使用记录</title>
-    <url>/2023/05/06/nacos%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/</url>
+    <url>/2023/05/06/nacosshi-yong-ji-lu/</url>
     <content><![CDATA[<h2 id="nacos分级存储模型"><a href="#nacos分级存储模型" class="headerlink" title="nacos分级存储模型"></a>nacos分级存储模型</h2><ol>
 <li>服务，如userservice</li>
 <li>集群，如杭州、上海</li>
@@ -137,7 +137,7 @@
   </entry>
   <entry>
     <title>virtualbox安装Ubuntu显示不全</title>
-    <url>/2023/05/06/virtualbox%E5%AE%89%E8%A3%85Ubuntu%E6%98%BE%E7%A4%BA%E4%B8%8D%E5%85%A8/</url>
+    <url>/2023/05/06/virtualboxan-zhuang-ubuntuxian-shi-bu-quan/</url>
     <content><![CDATA[<p>页面显示不全，无法点击下一步</p>
 <p>点击<strong>Alt+F7</strong>,鼠标晃动即可拖拽页面进行下一步。</p>
 ]]></content>
@@ -148,7 +148,7 @@
   </entry>
   <entry>
     <title>初识docker</title>
-    <url>/2023/05/07/%E5%88%9D%E8%AF%86docker/</url>
+    <url>/2023/05/07/chu-shi-docker/</url>
     <content><![CDATA[<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>没啥可说的,按照官方文档安装即可</p>
 <h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><p>通过<code>docker --help</code>了解命令</p>
 <h3 id="镜像操作"><a href="#镜像操作" class="headerlink" title="镜像操作"></a>镜像操作</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">docker save -o [保存的目标文件名称] [镜像名称]</span><br><span class="line">docker rmi [镜像名称]</span><br><span class="line">docker load -i [目标文件名称]</span><br></pre></td></tr></table></figure>
@@ -202,7 +202,7 @@
   </entry>
   <entry>
     <title>提高记忆力的方法</title>
-    <url>/2023/05/20/%E6%8F%90%E9%AB%98%E8%AE%B0%E5%BF%86%E5%8A%9B%E7%9A%84%E6%96%B9%E6%B3%95/</url>
+    <url>/2023/05/20/ti-gao-ji-yi-li-de-fang-fa/</url>
     <content><![CDATA[<h2 id="首先，从身体层面上"><a href="#首先，从身体层面上" class="headerlink" title="首先，从身体层面上"></a>首先，从身体层面上</h2><h3 id="作息一定要规律"><a href="#作息一定要规律" class="headerlink" title="作息一定要规律"></a>作息一定要规律</h3><h3 id="饮食一定要均衡"><a href="#饮食一定要均衡" class="headerlink" title="饮食一定要均衡"></a>饮食一定要均衡</h3><h3 id="运动一定要达标"><a href="#运动一定要达标" class="headerlink" title="运动一定要达标"></a>运动一定要达标</h3><h2 id="其次，在方法上"><a href="#其次，在方法上" class="headerlink" title="其次，在方法上"></a>其次，在方法上</h2>]]></content>
       <categories>
         <category>随笔</category>
@@ -210,7 +210,7 @@
   </entry>
   <entry>
     <title>算法</title>
-    <url>/2023/05/28/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/</url>
+    <url>/2023/05/28/suan-fa-bi-ji/</url>
     <content><![CDATA[<h2 id="查找算法"><a href="#查找算法" class="headerlink" title="查找算法"></a>查找算法</h2><div class="table-container">
 <table>
 <thead>
@@ -277,7 +277,7 @@
 mid=\frac {low+high}{2}=low+\frac 12(high-low)</script><p>插值查找中的 mid 索引：</p>
 <script type="math/tex; mode=display">
 mid=low+\frac{des-array[low]}{array[high]-array[low]}(high-low)</script><h3 id="斐波那契查找"><a href="#斐波那契查找" class="headerlink" title="斐波那契查找"></a>斐波那契查找</h3><p>  也是二分查找的一种提升算法，通过运用黄金比例的概念在数列中选择查找点进行查找，提高查找效率。同样地，斐波那契查找也属于一种有序查找算法。</p>
-<p><img src="./算法笔记/20210528172236922.png" alt="20210528172236922"></p>
+<p><img src="./20210528172236922.png" alt="20210528172236922"></p>
 <p>  相对于折半查找，一般将待比较的key值与第mid=（low+high）/2位置的元素比较，比较结果分三种情况：</p>
 <ol>
 <li><p>相等，mid位置的元素即为所求</p>
@@ -298,7 +298,7 @@ mid=low+\frac{des-array[low]}{array[high]-array[low]}(high-low)</script><h3 id="
 </li>
 </ol>
 <h3 id="分块查找"><a href="#分块查找" class="headerlink" title="分块查找"></a>分块查找</h3><p>分块查找又称索引顺序查找，是对顺序查找的一种改进方法。在此查找方法中，除了表本身外，还需要建立一个<strong>索引表</strong>。对表进行分块，分成几个子表，将子表中的索引保存至索引表，索引表按关键字有序，则<strong>分块有序</strong>，即前一个子表中所有元素均小于后一个子表中所有元素（大于同理）。</p>
-<p><img src="./算法笔记/20210528172312662.png" alt="20210528172312662"></p>
+<p><img src="./20210528172312662.png" alt="20210528172312662"></p>
 <p>因此，分块查找分为两步，第一步通过二分查找或顺序查找确定待查找元素所在的块，第二步，在块中进行顺序查找。</p>
 <h3 id="树表查找"><a href="#树表查找" class="headerlink" title="树表查找"></a>树表查找</h3><h4 id="二叉排序树-BST"><a href="#二叉排序树-BST" class="headerlink" title="二叉排序树(BST)"></a>二叉排序树(BST)</h4><p>二叉排序树（Binary Sort Tree）或是一棵空树，或是具有下列性质的二叉树：</p>
 <ol>
@@ -306,12 +306,12 @@ mid=low+\frac{des-array[low]}{array[high]-array[low]}(high-low)</script><h3 id="
 <li>若它的右子树不为空，则右子树上的所有结点的值均大于它的根结点的值；</li>
 <li>它的左右子树也是二叉排序树。</li>
 </ol>
-<p><img src="./算法笔记/20210528172340191.png" alt="20210528172340191"></p>
+<p><img src="./20210528172340191.png" alt="20210528172340191"></p>
 <p>二叉排序树又称二叉查找树，它的查找过程如下，当二叉排序树不为空时，首先将给定值和根结点进行比较，若相等，则查找成功；若小于根结点，则在左子树上继续查找；若大于根结点，则在右子树上继续查找。</p>
 <h4 id="平衡二叉排序树-BBT"><a href="#平衡二叉排序树-BBT" class="headerlink" title="平衡二叉排序树(BBT)"></a>平衡二叉排序树(BBT)</h4><p>平衡二叉树（Balanced Binary Tree）又称 AVL 树。它或是一棵空树，或是具有下列性质的二叉树：它的左右子树均是平衡二叉树，且<strong>左右子树的高度差的绝对值不超过1</strong>。</p>
 <p>如果构造二叉排序树的同时保证它是平衡二叉树，那么这样的树称为<strong>平衡二叉排序树</strong>（BBST），可以证明它的深度是和 O ( l o g 2 n ) O(log_2n)O(log2n) 一个数量级的，那么在进行查找时的时间复杂度就可以固定在 O ( l o g 2 n ) O(log_2n)O(log2n) ，而不会出现二叉排序树中的最坏的情况。</p>
 <p>下面是一棵平衡二叉排序树：</p>
-<p><img src="./算法笔记/2021052817240771.png" alt="在这里插入图片描述"></p>
+<p><img src="./2021052817240771.png" alt="在这里插入图片描述"></p>
 <p>平衡二叉排序树的查找过程和二叉排序树完全相同。</p>
 <h4 id="B-树"><a href="#B-树" class="headerlink" title="B-树"></a>B-树</h4><p>B-树是一种平衡的多路（查找路径不止两条）查找树，它在文件系统中很有用。<br>一棵 m 阶的B-树，或为空树，或为满足下列特性的 m 叉树：</p>
 <ol>
@@ -326,7 +326,7 @@ mid=low+\frac{des-array[low]}{array[high]-array[low]}(high-low)</script><h3 id="
 <li>所有的叶子结点都出现在同一层次上，且不携带信息（可以看作 null）。</li>
 </ol>
 <p>特别地，3阶B-树又称为2-3树，下面是一棵4阶的B-树：</p>
-<p><img src="./算法笔记/20210528172438734.png" alt="在这里插入图片描述"></p>
+<p><img src="./20210528172438734.png" alt="在这里插入图片描述"></p>
 <p>B-树的查找和二叉排序树类似，首先从根结点开始，逐层往下顺指针查找结点，然后在结点的关键字中进行查找。</p>
 <p>举个栗子，如果要查找关键字47，首先从根节点开始，因为47&gt;35，所以关键字若存在必在<script type="math/tex">A_1</script>所指的子树中，找到下一个结点，该节点有两个关键字，而43&lt;47&lt;78，所以关键字若存在必在<script type="math/tex">A_1</script>所指的子树中，找到下一个节点，该节点有3个关键字，顺序查找找到了关键字47。</p>
 <p>由此可见，B-树的查找主要涉及两个操作：在树中找结点；在结点中找关键字。</p>
@@ -337,7 +337,7 @@ mid=low+\frac{des-array[low]}{array[high]-array[low]}(high-low)</script><h3 id="
 <li>所有的非终端结点可以看成是索引部分，结点中仅含有其子树（根结点）中的最大（或最小）关键字。</li>
 </ol>
 <p>下面是一棵3阶的B+树：</p>
-<p><img src="./算法笔记/20210528172456282.png" alt="在这里插入图片描述"></p>
+<p><img src="./20210528172456282.png" alt="在这里插入图片描述"></p>
 <p>概括来说就是相比于B-树，B+树的非叶子结点不包含关键字的全部信息，仅保存最值充当索引，所有的数据信息保存在叶子结点中，而且叶子结点按关键字大小顺序链接。</p>
 <p>因此，对于B+树，有两种查找算法，一种是从根结点开始进行随机查找；一种是从最小关键字开始，顺着链表顺序查找。随机查找基本和B-树相同，不同之处是，每次比较关键值相等时，并不会停止，而是会继续向下直到叶子结点。</p>
 <h4 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h4><p>红黑树是每个结点都带有颜色属性的二叉查找树，颜色或红色或黑色，相对于二叉查找树，红黑树增加了以下额外要求:</p>
@@ -350,7 +350,7 @@ mid=low+\frac{des-array[low]}{array[high]-array[low]}(high-low)</script><h3 id="
 </ol>
 <p>通过对任何一条从根到叶子简单路径上的颜色来约束，红黑树保证最长路径不超过最短路径的两倍，因而近似于平衡。</p>
 <p>下面是一棵红黑树：</p>
-<p><img src="./算法笔记/20210528172519466.png" alt="在这里插入图片描述"></p>
+<p><img src="./20210528172519466.png" alt="在这里插入图片描述"></p>
 <p>红黑树的基本思想是用标准的二叉查找树（完全由2-结点构成）和一些额外的信息（替换3-结点）来表示2-3树。</p>
 <h3 id="哈希查找"><a href="#哈希查找" class="headerlink" title="哈希查找"></a>哈希查找</h3><p>上面介绍的查找方法都是建立在”比较“的基础上进行的，通过有限次数的比较，不断缩小范围，直至查找完成。很显然，这种算法的效率依赖于查找过程中比较的次数。</p>
 <p>那与没有一种方法可以不经过比较就得到待查找的记录呢？不难想到如果想要实现这种想法，就需要将关键字映射到一个唯一确定的位置，每次查找时只需要获取这个位置即可，问题就是如何确定这个映射关系。</p>
@@ -463,7 +463,7 @@ mid=low+\frac{des-array[low]}{array[high]-array[low]}(high-low)</script><h3 id="
 </ul>
 <h3 id="交换排序"><a href="#交换排序" class="headerlink" title="交换排序"></a>交换排序</h3><h4 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h4><p>将相邻关键字进行比较，较大的下沉，较小的上浮（假设要求升序排列，后算的算法相同），一趟过后最大的关键字会到末尾，借着按照同样的方式进行第二轮比较，次大的关键字会到倒数第二位，以此类推。</p>
 <p>在排序的过程中，较小的关键字形如水里的泡泡一样，逐渐向上漂浮，而较大的关键字像石头一样不断下沉，因此这种算法被形象地称为<strong>冒泡</strong>排序。</p>
-<p><img src="./算法笔记/20210531162206639.gif" alt="在这里插入图片描述"></p>
+<p><img src="./20210531162206639.gif" alt="在这里插入图片描述"></p>
 <h4 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h4><p>快速排序是对冒泡排序的一种改进，它同样采用了分治的策略，算法思想如下：</p>
 <ol>
 <li>先从数列中取出一个数作为基准数（pivot）。</li>
@@ -471,28 +471,28 @@ mid=low+\frac{des-array[low]}{array[high]-array[low]}(high-low)</script><h3 id="
 <li>再对左右区间重复第二步，直到各区间只有一个数。</li>
 </ol>
 <p>快速排序的难点在于如何将基准数放在正确的位置上，常见方法有两种：挖坑法和指针交换法，两种方法的原理几乎相同，只是代码层面有一点不同，挖坑法的具体演示如下图。</p>
-<p><img src="./算法笔记/20210531162330817.gif" alt="在这里插入图片描述"></p>
+<p><img src="./20210531162330817.gif" alt="在这里插入图片描述"></p>
 <h3 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h3><h4 id="简单的选择排序"><a href="#简单的选择排序" class="headerlink" title="简单的选择排序"></a>简单的选择排序</h4><p>每一趟在 n-i+1 (i=1,2,…,n-1) 个记录中选取关键字最小的元素作为有序序列的第 i 个元素，重复 n-1 趟。</p>
-<p><img src="./算法笔记/20210531162229367.gif" alt="在这里插入图片描述"></p>
+<p><img src="./20210531162229367.gif" alt="在这里插入图片描述"></p>
 <h4 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h4><p>堆排序是利用<strong>堆</strong>这种数据结构所设计的一种排序算法。堆是一个近似完全二叉树的结构，并同时满足堆积的性质：即子结点的键值或索引总是小于（或者大于）它的父节点。</p>
-<p><img src="./算法笔记/20210531162346782.gif" alt="在这里插入图片描述"></p>
+<p><img src="./20210531162346782.gif" alt="在这里插入图片描述"></p>
 <h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3><p>在要排序的一组数中，假定前 n-1 个数已经排好序，现在将第 n 个数插到前面的有序数列中，使得这 n 个数也是排好顺序的。如此反复循环，直到全部排好顺序。</p>
-<p><img src="./算法笔记/2021053116224238.gif" alt="在这里插入图片描述"></p>
+<p><img src="./2021053116224238.gif" alt="在这里插入图片描述"></p>
 <h4 id="简单插入排序"><a href="#简单插入排序" class="headerlink" title="简单插入排序"></a>简单插入排序</h4><p>希尔排序又称“<strong>缩小增量排序</strong>”，它也是一种属于插入排序类的方法。</p>
 <p>从对直接插入排序的分析来看，如果序列基本有序，那么元素移动的次数就会大大减少，当 n 值很小时，直接插入排序的效率也会非常高，基于此，希尔排序对直接插入排序进行了改进，其基本思想如下：</p>
 <p>在要排序的一组数中，根据某一增量分为若干子序列，并对子序列分别进行插入排序。然后逐渐将增量减小，并重复上述过程。直至增量为1，此时数据序列基本有序，最后进行插入排序。</p>
-<p><img src="./算法笔记/20210531162255673.gif" alt="在这里插入图片描述"></p>
+<p><img src="./20210531162255673.gif" alt="在这里插入图片描述"></p>
 <h4 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h4><p>希尔排序又称“<strong>缩小增量排序</strong>”，它也是一种属于插入排序类的方法。</p>
 <p>从对直接插入排序的分析来看，如果序列基本有序，那么元素移动的次数就会大大减少，当 n 值很小时，直接插入排序的效率也会非常高，基于此，希尔排序对直接插入排序进行了改进，其基本思想如下：</p>
 <p>在要排序的一组数中，根据某一增量分为若干子序列，并对子序列分别进行插入排序。然后逐渐将增量减小，并重复上述过程。直至增量为1，此时数据序列基本有序，最后进行插入排序。</p>
-<p><img src="./算法笔记/20210531162255673.gif" alt="在这里插入图片描述"></p>
+<p><img src="./20210531162255673.gif" alt="在这里插入图片描述"></p>
 <h3 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h3><p>归并排序是建立在归并操作上的一种有效，稳定的排序算法，该算法是采用分治法（Divide and Conquer）的一个非常典型的应用。</p>
 <p>分治法中的“分”和“治”是两个过程，“分”是不断地将序列分成从中间两段，直至最后子序列只有一个元素；“治”是将一个个的子序列进行排序得到有序的子序列，再将子序列合并得到完全有序的序列，即先使每个子序列有序，再使子序列段间有序。若将两个有序表合并成一个有序表，称为<strong>二路归并</strong>。</p>
-<p><img src="./算法笔记/20210531162309580.gif" alt="在这里插入图片描述"></p>
+<p><img src="./20210531162309580.gif" alt="在这里插入图片描述"></p>
 <h3 id="计数排序"><a href="#计数排序" class="headerlink" title="计数排序"></a>计数排序</h3><p>计数排序不是一个基于比较的排序算法。</p>
 <p>计数排序的基本思想是对于给定的输入序列中的每一个元素 x，确定该序列中值小于 x 的元素的个数（此处并非比较各元素的大小，而是通过对元素值的计数和计数值的累加来确定）。一旦获得该信息，就可以将 x 直接存放到最终的输出序列的正确位置上。例如有 10 个年龄不同的人，统计出有 8 个人的年龄比 A 小，那 A 的年龄就排在第 9 位。</p>
 <p>计数排序的核心在于将输入的数据值转化为键存储在额外开辟的数组空间中。作为一种线性时间复杂度的排序，计数排序要求输入的数据必须是有确定范围的整数。</p>
-<p><img src="./算法笔记/2021053116240161.gif" alt="在这里插入图片描述"></p>
+<p><img src="./2021053116240161.gif" alt="在这里插入图片描述"></p>
 <h3 id="桶排序"><a href="#桶排序" class="headerlink" title="桶排序"></a>桶排序</h3><p>桶排序是计数排序的升级版，它的基本思想是将数组分到有限数量的桶里，每个桶再进行排序（可以使用别的排序算法或是以递归方式继续使用桶排序）。</p>
 <p>将数组分配到有限数量的桶里需要一个高效的分配方法，尽可能地做到：</p>
 <ol>
@@ -500,7 +500,7 @@ mid=low+\frac{des-array[low]}{array[high]-array[low]}(high-low)</script><h3 id="
 <li>将输入的 N 个数据均匀的分配到 K 个桶中</li>
 </ol>
 <p>对于桶中元素的排序，选择何种比较排序算法对于性能的影响同样重要。</p>
-<p><img src="./算法笔记/20210531162412130.gif" alt="在这里插入图片描述"></p>
+<p><img src="./20210531162412130.gif" alt="在这里插入图片描述"></p>
 <h3 id="基数排序"><a href="#基数排序" class="headerlink" title="基数排序"></a>基数排序</h3><p>基数排序是一种基于多关键字排序的的方法，什么是<strong>多关键字</strong>？举个栗子：</p>
 <p>一副扑克牌（除去大小王），每张牌的位置由两个因素决定，一个是花色，一个是面值。同花色时面值小的在上，面值大的在下；不同花色，无论面值多少，先后顺序总是红桃♥、方片♦、梅花♣和黑桃♠ 。这里花色和面值就是多关键字。</p>
 <p>现在这副牌已经洗乱了，现在你想给它排好序，就像刚买的时候一样，这个时候你会怎么做？你有两种做法：</p>
@@ -511,12 +511,12 @@ mid=low+\frac{des-array[low]}{array[high]-array[low]}(high-low)</script><h3 id="
 <p>这里两种方式对应着基数排序的两种方法，第一种是<strong>最高位优先</strong>（Most Significant Digit first）法，简称 MSD 法；第二种是<strong>最低位优先</strong>（Least Significant Digit first）法，简称 LSD 法。</p>
 <p>MSD 法：先按最高位关键字排序分组，同一组中记录，关键字相等，再对各组按次高位关键字排序分成子组，之后，对后面的关键字继续这样的排序分组，直到按最低位关键字对各子组排序后。再将各组连接起来，便得到一个有序序列。</p>
 <p>LSD 法：先从最低位关键字开始排序，再对高一位关键字进行排序，依次重复，直到对第一个关键字排序后便得到一个有序序列。</p>
-<p><img src="./算法笔记/20210531162428752.gif" alt="在这里插入图片描述"></p>
+<p><img src="./20210531162428752.gif" alt="在这里插入图片描述"></p>
 <h2 id="图算法"><a href="#图算法" class="headerlink" title="图算法"></a>图算法</h2><h3 id="路径查找算法"><a href="#路径查找算法" class="headerlink" title="路径查找算法"></a>路径查找算法</h3><h4 id="广度优先搜索算法"><a href="#广度优先搜索算法" class="headerlink" title="广度优先搜索算法"></a>广度优先搜索算法</h4><h4 id="深度优先搜索算法"><a href="#深度优先搜索算法" class="headerlink" title="深度优先搜索算法"></a>深度优先搜索算法</h4><h4 id="最短路径算法"><a href="#最短路径算法" class="headerlink" title="最短路径算法"></a>最短路径算法</h4><h4 id="所有点对最短路径算法"><a href="#所有点对最短路径算法" class="headerlink" title="所有点对最短路径算法"></a>所有点对最短路径算法</h4><h4 id="单源最短路径算法"><a href="#单源最短路径算法" class="headerlink" title="单源最短路径算法"></a>单源最短路径算法</h4><h4 id="最小生成树算法"><a href="#最小生成树算法" class="headerlink" title="最小生成树算法"></a>最小生成树算法</h4><h4 id="随机游走算法"><a href="#随机游走算法" class="headerlink" title="随机游走算法"></a>随机游走算法</h4><h3 id="中心性算法"><a href="#中心性算法" class="headerlink" title="中心性算法"></a>中心性算法</h3><h4 id="度中心性算法"><a href="#度中心性算法" class="headerlink" title="度中心性算法"></a>度中心性算法</h4><h4 id="接近中心性算法"><a href="#接近中心性算法" class="headerlink" title="接近中心性算法"></a>接近中心性算法</h4><h4 id="中间中心性算法"><a href="#中间中心性算法" class="headerlink" title="中间中心性算法"></a>中间中心性算法</h4><h4 id="PageRank算法"><a href="#PageRank算法" class="headerlink" title="PageRank算法"></a>PageRank算法</h4><h3 id="社团发现算法"><a href="#社团发现算法" class="headerlink" title="社团发现算法"></a>社团发现算法</h3><h4 id="度量算法（面向整体关系稠密度，用于衡量图的结构特性）"><a href="#度量算法（面向整体关系稠密度，用于衡量图的结构特性）" class="headerlink" title="度量算法（面向整体关系稠密度，用于衡量图的结构特性）"></a>度量算法（面向整体关系稠密度，用于衡量图的结构特性）</h4><h4 id="分量算法（用于发现连通簇）"><a href="#分量算法（用于发现连通簇）" class="headerlink" title="分量算法（用于发现连通簇）"></a>分量算法（用于发现连通簇）</h4><h4 id="标签传播算法（可基于节点标签快速推断群组）"><a href="#标签传播算法（可基于节点标签快速推断群组）" class="headerlink" title="标签传播算法（可基于节点标签快速推断群组）"></a>标签传播算法（可基于节点标签快速推断群组）</h4><h4 id="Louvain模块度算法（用于研究分组的"><a href="#Louvain模块度算法（用于研究分组的" class="headerlink" title="Louvain模块度算法（用于研究分组的"></a>Louvain模块度算法（用于研究分组的</h4>]]></content>
   </entry>
   <entry>
     <title>GithubAction的自动化构建</title>
-    <url>/2023/05/11/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%9E%84%E5%BB%BA/</url>
+    <url>/2023/05/11/zi-dong-hua-gou-jian/</url>
     <content><![CDATA[<p>在项目创建<code>.github/workflows</code>文件夹<br>创建main.yml文件,名字随意<br>文件要包含几个主要信息</p>
 <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="string">//</span> <span class="string">如不设置,这个流程名为文件名</span></span><br><span class="line"><span class="attr">name:</span></span><br><span class="line"><span class="string">//</span> <span class="string">这个流程的主要信息,监听事件</span>  </span><br><span class="line"><span class="attr">on:</span></span><br><span class="line"><span class="string">//</span> <span class="string">包含的任务,并且任务之间可以有依赖关系</span>  </span><br><span class="line"><span class="attr">jobs:</span></span><br></pre></td></tr></table></figure>
 <p>任务和任务之间是并发的  </p>
@@ -538,7 +538,7 @@ mid=low+\frac{des-array[low]}{array[high]-array[low]}(high-low)</script><h3 id="
   </entry>
   <entry>
     <title>麻绳专挑细处断,噩运只找苦命人</title>
-    <url>/2023/04/28/%E9%BA%BB%E7%BB%B3%E4%B8%93%E6%8C%91%E7%BB%86%E5%A4%84%E6%96%AD-%E5%99%A9%E8%BF%90%E5%8F%AA%E6%89%BE%E8%8B%A6%E5%91%BD%E4%BA%BA/</url>
+    <url>/2023/04/28/ma-sheng-zhuan-tiao-xi-chu-duan-e-yun-zhi-zhao-ku-ming-ren/</url>
     <content><![CDATA[<p>不是说之专挑细处，只是因为麻绳的粗细不同，同样的力道麻绳粗的一段便不会断<br>就厄运而言，实力强大的人他的容错更高<br>因此，我们能做的只有时刻提升自己，以应对可能出现的情况</p>
 ]]></content>
       <categories>
