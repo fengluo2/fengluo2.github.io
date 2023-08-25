@@ -14,8 +14,8 @@
       </tags>
   </entry>
   <entry>
-    <title></title>
-    <url>/2023/08/25/dockerchang-yong-rong-qi-ji-qi-ming-ling/</url>
+    <title>docker常用容器及其命令</title>
+    <url>/2023/05/07/dockerchang-yong-rong-qi-ji-qi-ming-ling/</url>
     <content><![CDATA[<h2 id="公共"><a href="#公共" class="headerlink" title="公共"></a>公共</h2><ul>
 <li><code>docker logs -f --tail 100 [容器名]</code>查看日志</li>
 <li><code>docker exec -it [容器名] bash</code>进入容器</li>
@@ -30,6 +30,9 @@
 <p><code>redis-cli</code></p>
 <h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>不要使用特殊字符，如<code>[$,.]</code>等</p>
 ]]></content>
+      <categories>
+        <category>docker</category>
+      </categories>
   </entry>
   <entry>
     <title>gateway的使用记录</title>
