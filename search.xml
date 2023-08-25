@@ -14,6 +14,24 @@
       </tags>
   </entry>
   <entry>
+    <title></title>
+    <url>/2023/08/25/dockerchang-yong-rong-qi-ji-qi-ming-ling/</url>
+    <content><![CDATA[<h2 id="公共"><a href="#公共" class="headerlink" title="公共"></a>公共</h2><ul>
+<li><code>docker logs -f --tail 100 [容器名]</code>查看日志</li>
+<li><code>docker exec -it [容器名] bash</code>进入容器</li>
+</ul>
+<h2 id="Mysql"><a href="#Mysql" class="headerlink" title="Mysql"></a>Mysql</h2><p>配置文件先运行一遍，在容器里拿</p>
+<p>运行</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run -p 3306:3306 --name mysql --privileged=true \</span><br><span class="line">-v /docker/mysql/log:/var/log/mysql \</span><br><span class="line">-v /docker/mysql/data:/var/lib/mysql \</span><br><span class="line">-v /docker/mysql/conf/my.cnf:/etc/mysql/my.cnf \</span><br><span class="line">-v /docker/mysql/mysql-files:/var/lib/mysql-files \</span><br><span class="line">-e MYSQL_ROOT_PASSWORD=root -d mysql:latest</span><br></pre></td></tr></table></figure>
+<p><code>mysql -h 127.0.0.1 -p</code></p>
+<h2 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h2><p>配置文件上官网找</p>
+<p>运行</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run --name redis --privileged=true -p 6379:6379 \</span><br><span class="line">--log-opt max-size=100m \</span><br><span class="line">--log-opt max-file=3 \</span><br><span class="line">-v /docker/redis/config/redis.conf:/etc/redis/redis.conf \</span><br><span class="line">-v /docker/redis/data:/data \</span><br><span class="line">-v /etc/localtime:/etc/localtime:ro \</span><br><span class="line">-d redis:7.2.0 \</span><br><span class="line">redis-server /etc/redis/redis.conf \</span><br><span class="line">--requirepass 123456</span><br></pre></td></tr></table></figure>
+<p><code>redis-cli</code></p>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>不要使用特殊字符，如<code>[$,.]</code>等</p>
+]]></content>
+  </entry>
+  <entry>
     <title>gateway的使用记录</title>
     <url>/2023/05/07/gatewayde-shi-yong-ji-lu/</url>
     <content><![CDATA[<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a>添加依赖</h3><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-gateway<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 新版gateway需要加上lb依赖 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-loadbalancer<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -103,6 +121,11 @@
         <tag>java</tag>
         <tag>jackson</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>mongodb开启认证</title>
+    <url>/2023/06/24/mongodbkai-qi-ren-zheng/</url>
+    <content><![CDATA[<h2 id="安装mongodb"><a href="#安装mongodb" class="headerlink" title="安装mongodb"></a>安装mongodb</h2><h2 id="开启认证"><a href="#开启认证" class="headerlink" title="开启认证"></a>开启认证</h2><h3 id="创建管理员用户和数据库用户"><a href="#创建管理员用户和数据库用户" class="headerlink" title="创建管理员用户和数据库用户"></a>创建管理员用户和数据库用户</h3><h3 id="配置文件开启认证"><a href="#配置文件开启认证" class="headerlink" title="配置文件开启认证"></a>配置文件开启认证</h3>]]></content>
   </entry>
   <entry>
     <title>nacos使用记录</title>
