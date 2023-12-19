@@ -15,8 +15,35 @@
     <atom:link href="http://example.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>枫珞的博客，有各种各样的东西。</description>
-    <pubDate>Sat, 24 Jun 2023 21:30:58 GMT</pubDate>
+    <pubDate>Tue, 19 Dec 2023 00:47:33 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>git常用命令</title>
+      <link>http://example.com/2023/12/19/nginx-vue-xiang-mu-shua-xin-404wen-ti/</link>
+      <guid>http://example.com/2023/12/19/nginx-vue-xiang-mu-shua-xin-404wen-ti/</guid>
+      <pubDate>Tue, 19 Dec 2023 00:47:33 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span</description>
+          
+        
+      
+      
+      
+      
+      
+      <category domain="http://example.com/tags/nginx/">nginx</category>
+      
+      <category domain="http://example.com/tags/vue/">vue</category>
+      
+      
+      <comments>http://example.com/2023/12/19/nginx-vue-xiang-mu-shua-xin-404wen-ti/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>mongodb开启认证</title>

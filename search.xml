@@ -162,6 +162,16 @@
       </tags>
   </entry>
   <entry>
+    <title>git常用命令</title>
+    <url>/2023/12/19/nginx-vue-xiang-mu-shua-xin-404wen-ti/</url>
+    <content><![CDATA[<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#  ------- 解决刷新404问题 ----&gt;</span></span><br><span class="line">    location / &#123;</span><br><span class="line">      try_files <span class="variable">$uri</span> <span class="variable">$uri</span>/ @router;</span><br><span class="line">      index index.html;</span><br><span class="line">    &#125;</span><br><span class="line">    location @router &#123;</span><br><span class="line">      rewrite ^.*$ /index.html last;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>nginx</tag>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>virtualbox安装Ubuntu显示不全</title>
     <url>/2023/05/06/virtualboxan-zhuang-ubuntuxian-shi-bu-quan/</url>
     <content><![CDATA[<p>页面显示不全，无法点击下一步</p>
