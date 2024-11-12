@@ -172,6 +172,17 @@
       </tags>
   </entry>
   <entry>
+    <title>virtualbox安装Ubuntu显示不全</title>
+    <url>/2023/05/06/virtualboxan-zhuang-ubuntuxian-shi-bu-quan/</url>
+    <content><![CDATA[<p>页面显示不全，无法点击下一步</p>
+<p>点击<strong>Alt+F7</strong>,鼠标晃动即可拖拽页面进行下一步。</p>
+]]></content>
+      <tags>
+        <tag>VirtualBox</tag>
+        <tag>Ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>初识docker</title>
     <url>/2023/05/07/chu-shi-docker/</url>
     <content><![CDATA[<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>没啥可说的,按照官方文档安装即可</p>
@@ -224,17 +235,6 @@
       <categories>
         <category>docker</category>
       </categories>
-  </entry>
-  <entry>
-    <title>virtualbox安装Ubuntu显示不全</title>
-    <url>/2023/05/06/virtualboxan-zhuang-ubuntuxian-shi-bu-quan/</url>
-    <content><![CDATA[<p>页面显示不全，无法点击下一步</p>
-<p>点击<strong>Alt+F7</strong>,鼠标晃动即可拖拽页面进行下一步。</p>
-]]></content>
-      <tags>
-        <tag>VirtualBox</tag>
-        <tag>Ubuntu</tag>
-      </tags>
   </entry>
   <entry>
     <title>提高记忆力的方法</title>
